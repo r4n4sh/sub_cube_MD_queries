@@ -3,8 +3,10 @@
 
 
 #include <vector>
+#include "RangeTree.h"
 
 using namespace std;
+namespace RT = RangeTree;
 
 
 class RegionAlg {
@@ -16,6 +18,7 @@ private:
 	int eps_1; //1\epsilon
 public:
 
+	RT::RangeTree<int,int>* rtree;
 	RegionAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerlimits);
 	void update(vector<int> x);
 	int query(vector<int> x, vector<int>& lower, vector<int>& upper);

@@ -9,12 +9,17 @@
 #include <cstring>
 #include <algorithm>
 #include <vector>
-#include "RangeTree.h"
 #include "regionalg.h"
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/classification.hpp>
 
-namespace RT = RangeTree;
 
 
+#ifndef CLK_PER_SEC
+#ifdef CLOCKS_PER_SEC
+#define CLK_PER_SEC CLOCKS_PER_SEC
+#endif
+#endif
 
 int main(int argc, char * argv[]) {
 
@@ -23,6 +28,10 @@ int main(int argc, char * argv[]) {
 
 	int *upper_limits = new int[2];
 	int *lower_limits = new int[2];
+	int epsilon_1 = 16;
+	int numItems = 1000;
+	int d = 2;
+	ifstream myfile ("dataset.txt");
 
 	upper_limits[0] = 16;
 	upper_limits[1] = 32;
@@ -30,14 +39,125 @@ int main(int argc, char * argv[]) {
 	lower_limits[1] = 0;
 
 
-	RegionAlg* alg = new RegionAlg(2, 4, upper_limits, lower_limits);
 
+	/*
+		Parse Arguments
+	*/
+
+	for (int i = 1; i < argc; i++)
+	{
+		if (i + 1 != argc)
+		{
+            if (strcmp(argv[i], "-n") == 0) // This is your parameter name
+	        {
+				numItems = atoi(argv[i+1]);
+	            i++;    // Move to the next flag
+	        }
+
+			if (strcmp(argv[i], "-f") == 0)
+			{
+				ifstream myfile (argv[i+1]);
+				i++;
+			}
+			if (strcmp(argv[i], "-e") == 0)
+			{
+				epsilon_1 = atoi(argv[i+1]);
+				i++;
+			}
+			if (strcmp(argv[i], "-d") == 0)
+			{
+				d = atoi(argv[i+1]);
+				i++;
+			}
+
+
+		}
+	}
+
+
+
+
+	RegionAlg* alg = new RegionAlg(2, epsilon_1, upper_limits, lower_limits);
+
+/*
 	vector<int> cor1 = {15,31};
 	vector<int> res = alg->fromCorToBlock(cor1);
 
 	for (int i = 0; i < 2; i++) {
   		cout << "result[" << i << "]: "<< res[i] << endl;
 	}
+*/
+
+
+	auto f = [](int a, int b) { std::vector<int> c = {a, b}; return c;};
+	auto g = [](bool a, bool b) { std::vector<bool> c = {a, b}; return c;};
+
+	int count = alg->rtree->countInRange(f(2, 1), f(2, 3), g(true, true), g(true, true));
+	cout << "count in range: "<< count << endl;
+
+/*
+	std::vector<RT::Point<int,int> >  points = alg->rtree->pointsInRange(f(2, 1), f(2, 3), g(true, true), g(true, true));
+	cout << "count in range: "<< count << endl;
+
+
+
+	for(auto const& value: points) {
+		std::vector<int> vec = value.asVector();
+	    cout << "point: ";
+
+		for(auto const& p: vec) {
+			cout << p;
+		}
+
+		cout << endl;
+	}
+*/
+    RT::Point<int,int>* a = new RT::Point<int,int> (f(2,4), 0);
+
+	alg->rtree->updateSketch(new RT::Point<int,int> (f(2,3), 0));
+	alg->rtree->updateSketch(new RT::Point<int,int> (f(2,2), 0));
+	alg->rtree->updateSketch(new RT::Point<int,int> (f(2,1), 0));
+
+
+    int res1 = alg->rtree->countInSketchRange(f(2, 1), f(2, 3), a);
+	cout << "count sketch range: "<< res1 << endl;
+
+
+	clock_t begint, endt;
+	struct timeb begintb, endtb;
+	double time;
+	string line;
+	vector<int> vdata[numItems];
+    std::vector<std::string> tokens;
+
+	if (myfile.is_open()) {
+		int i = 0;
+		while (getline (myfile,line) && i < numItems)
+		{
+		    split(tokens, line, boost::is_any_of(" ")); // here it is
+			for(auto& s: tokens) {
+				vdata[i].push_back(stoi(s));
+			}
+			i++;
+		}
+	}
+
+
+	/*
+		Update Test
+
+	begint = clock();
+	ftime(&begintb);
+
+	for (int i = 0; i < numItems; i++) {
+		//sa->update(vdata[i]);
+		alg->rtree->updateSketch(new RT::Point<int,int> (vdata[i], 0));
+	}
+
+	endt = clock();
+	ftime(&endtb);
+	time = ((double)(endt-begint))/CLK_PER_SEC;
+	printf( "Update %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 	return 1;
 }
@@ -77,9 +197,9 @@ RegionAlg::RegionAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glow
 	}
 
 	/* Construct the range tree */
-	RT::RangeTree<int,int> rtree(points);
+	rtree = new RT::RangeTree<int,int>(points);
 
-	rtree.print(); //TODO: this is only for testing
+	rtree->print(); //TODO: this is only for testing
 }
 
 
