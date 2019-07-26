@@ -21,7 +21,9 @@ public:
 	RT::RangeTree<int,int>* rtree;
 	RegionAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerlimits);
 	void update(vector<int> x);
-	int query(vector<int> x, vector<int>& lower, vector<int>& upper);
+	int countQuery(vector<int>& lower, vector<int>& upper);
+	void update3(vector<int> x);
+	int countQuery3(vector<int>& lower, vector<int>& upper);
 	std::vector<int> fromCorToBlock(vector<int> cor);
 };
 

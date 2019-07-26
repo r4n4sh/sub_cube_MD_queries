@@ -538,8 +538,8 @@ namespace RangeTree {
         * @return a range tree structure
         */
         RangeTreeNode(SortedPointMatrix<T,S>& spm,
-                      bool onLeftEdge = true,
-                      bool onRightEdge = true): pointOrdering(spm.getCurrentDim()) {
+                      bool onLeftEdge = false,
+                      bool onRightEdge = false): pointOrdering(spm.getCurrentDim()) {
             point = spm.getMidPoint();
 
             if (spm.numUniquePoints() == 1) {
@@ -836,7 +836,7 @@ namespace RangeTree {
         * @return the count.
         */
         int countInSketchRange(const std::vector<T>& lower,
-                         const std::vector<T>& upper, Point<T,S>* qpoint) const {
+                         const std::vector<T>& upper) {
 
             std::vector<Point<T,S> > pointsToReturn = {};
             int sum = 0;
@@ -850,16 +850,26 @@ namespace RangeTree {
             int compareInd = pointOrdering.getCompareStartIndex();
 
             if ((*point)[compareInd] > upper[compareInd]) {
-                return left->countInSketchRange(lower, upper, qpoint);
+                return left->countInSketchRange(lower, upper);
             }
             if ((*point)[compareInd] < lower[compareInd]) {
-                return right->countInSketchRange(lower, upper, qpoint);
+                return right->countInSketchRange(lower, upper);
             }
 
             int dim = point->dim();
             if (compareInd + 2 == dim) {
 
-                return queryRelevantNodeSketch(lower, upper, qpoint);
+                int sum = 0;
+                std::vector<RangeTreeNode<T, S>* > nodes;
+                relevantNodes(lower, upper, nodes);
+
+                for (int i = 0; i < nodes.size(); i++) {
+                    sum += nodes[i]->counter;
+                }
+
+                return sum;
+
+                //return queryRelevantNodeSketch(lower, upper);
             } else {
                 std::vector<std::shared_ptr<RangeTreeNode<T, S> > > canonicalNodes = {};
 
@@ -888,7 +898,7 @@ namespace RangeTree {
                         pointsToReturn.insert(pointsToReturn.end(), allPointsAtNode.begin(), allPointsAtNode.end());
 
                     } else {
-                        auto allPointsAtNode = node->treeOnNextDim->countInSketchRange(lower, upper, qpoint);
+                        auto allPointsAtNode = node->treeOnNextDim->countInSketchRange(lower, upper);
                       //  pointsToReturn.insert(pointsToReturn.end(), allPointsAtNode.begin(), allPointsAtNode.end());
                     }
                 }
@@ -954,8 +964,9 @@ namespace RangeTree {
             int dim = gpoint->dim();
             int compareInd = pointOrdering.getCompareStartIndex();
 
-            while (compareInd + 2 != dim) {
+            while (compareInd + 2 != dim && !isLeaf) {
                 treeOnNextDim->updatePointSketch(gpoint);
+                return;
             }
 
             //CM_Update(sketch, vectorToInt(gpoint->asVector()), 1);
@@ -1126,7 +1137,7 @@ namespace RangeTree {
 /*##########################################################################################*/
 
         int queryRelevantNodeSketch(const std::vector<T>& lower,
-                          const std::vector<T>& upper, Point<T,S>* qpoint) const {
+                          const std::vector<T>& upper) const {
             int compareInd = point->dim() - 2;
             int sum = 0;
 
@@ -1138,10 +1149,9 @@ namespace RangeTree {
                     return sum;
                 }
                 //nodes.push_back(left.get());
-                //sum += CM_PointEst(left.get()->sketch, vectorToInt(qpoint->asVector()));
                 sum += (left.get()->counter);
 
-                return sum + right->queryRelevantNodeSketch(lower, upper, qpoint);
+                return sum + right->queryRelevantNodeSketch(lower, upper);
             }
 
 
@@ -1151,12 +1161,49 @@ namespace RangeTree {
                     return sum;
                 }
 
-                return left->queryRelevantNodeSketch(lower, upper, qpoint);
+                return left->queryRelevantNodeSketch(lower, upper);
             } else {
                 if (isLeaf) {
                     return sum;
                 }
-                return right->queryRelevantNodeSketch(lower, upper, qpoint);
+                return right->queryRelevantNodeSketch(lower, upper);
+            }
+
+        }
+
+
+
+        int relevantNodes(const std::vector<T>& lower,
+                          const std::vector<T>& upper, std::vector<RangeTreeNode<T,S>* >& nodes) {
+            int compareInd = point->dim() - 2;
+            int sum = 0;
+
+            if (pointInRange(*point, lower, upper)) {
+                if (isLeaf) {
+                    nodes.push_back(this);
+                    //sum += CM_PointEst(sketch, vectorToInt(qpoint->asVector()));
+                    sum += counter;
+                    return sum;
+                }
+                nodes.push_back(left.get());
+                sum += (left.get()->counter);
+
+                return sum + right->relevantNodes(lower, upper, nodes);;
+            }
+
+
+            if (lower[compareInd] <= (*point)[compareInd]) {
+                if (isLeaf) {
+                    //nodes.push_back(this);// ????
+                    return sum;
+                }
+
+                return left->relevantNodes(lower, upper, nodes);
+            } else {
+                if (isLeaf) {
+                    return sum;
+                }
+                return right->relevantNodes(lower, upper, nodes);
             }
 
         }
@@ -1437,12 +1484,12 @@ namespace RangeTree {
 
 
         int countInSketchRange(const std::vector<T>& lower,
-                         const std::vector<T>& upper, Point<T,S>* qpoint) const {
+                         const std::vector<T>& upper) const {
 
             if (lower.size() != upper.size()) {
                 throw std::logic_error("upper and lower in countInRange must have the same length.");
             }
-            return root->countInSketchRange(lower, upper, qpoint);
+            return root->countInSketchRange(lower, upper);
         }
 
 

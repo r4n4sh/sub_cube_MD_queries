@@ -21,23 +21,29 @@
 #endif
 #endif
 
+
+
+auto f = [](int a, int b) { std::vector<int> c = {a, b}; return c;};
+auto g = [](bool a, bool b) { std::vector<bool> c = {a, b}; return c;};
+auto f3 = [](int a, int b, int c) { std::vector<int> d = {a, b, c}; return d;};
+
+
 int main(int argc, char * argv[]) {
 
-  cout << "Main Test of RegionAlg!" << endl;
-
-
-	int *upper_limits = new int[2];
-	int *lower_limits = new int[2];
-	int epsilon_1 = 16;
-	int numItems = 1000;
+	int *upper_limits = new int[3];
+	int *lower_limits = new int[3];
+	int epsilon_1 = 10;
+	//int numItems = 99003;
+	int numItems = 200000;
 	int d = 2;
-	ifstream myfile ("dataset.txt");
+	ifstream myfile ("dfacebookdataset2d.txt");
 
-	upper_limits[0] = 16;
-	upper_limits[1] = 32;
+	upper_limits[0] = 200;
+	upper_limits[1] = 200;
+	upper_limits[2] = 200;
 	lower_limits[0] = 0;
 	lower_limits[1] = 0;
-
+	lower_limits[2] = 0;
 
 
 	/*
@@ -70,48 +76,15 @@ int main(int argc, char * argv[]) {
 				i++;
 			}
 
-
 		}
 	}
 
-
-
-
-	RegionAlg* alg = new RegionAlg(2, epsilon_1, upper_limits, lower_limits);
+	RegionAlg* alg = new RegionAlg(d, epsilon_1, upper_limits, lower_limits);
 
 /*
-	vector<int> cor1 = {15,31};
-	vector<int> res = alg->fromCorToBlock(cor1);
-
-	for (int i = 0; i < 2; i++) {
-  		cout << "result[" << i << "]: "<< res[i] << endl;
-	}
-*/
-
-
-	auto f = [](int a, int b) { std::vector<int> c = {a, b}; return c;};
-	auto g = [](bool a, bool b) { std::vector<bool> c = {a, b}; return c;};
-
 	int count = alg->rtree->countInRange(f(2, 1), f(2, 3), g(true, true), g(true, true));
 	cout << "count in range: "<< count << endl;
 
-/*
-	std::vector<RT::Point<int,int> >  points = alg->rtree->pointsInRange(f(2, 1), f(2, 3), g(true, true), g(true, true));
-	cout << "count in range: "<< count << endl;
-
-
-
-	for(auto const& value: points) {
-		std::vector<int> vec = value.asVector();
-	    cout << "point: ";
-
-		for(auto const& p: vec) {
-			cout << p;
-		}
-
-		cout << endl;
-	}
-*/
     RT::Point<int,int>* a = new RT::Point<int,int> (f(2,4), 0);
 
 	alg->rtree->updateSketch(new RT::Point<int,int> (f(2,3), 0));
@@ -119,20 +92,22 @@ int main(int argc, char * argv[]) {
 	alg->rtree->updateSketch(new RT::Point<int,int> (f(2,1), 0));
 
 
-    int res1 = alg->rtree->countInSketchRange(f(2, 1), f(2, 3), a);
+    int res1 = alg->rtree->countInSketchRange(f(2, 1), f(2, 3));
 	cout << "count sketch range: "<< res1 << endl;
-
+*/
 
 	clock_t begint, endt;
 	struct timeb begintb, endtb;
 	double time;
 	string line;
-	vector<int> vdata[numItems];
+	int datalen = 200000;
+	vector<int> vdata[datalen];
+
     std::vector<std::string> tokens;
 
 	if (myfile.is_open()) {
 		int i = 0;
-		while (getline (myfile,line) && i < numItems)
+		while (getline (myfile,line) && i < datalen)
 		{
 		    split(tokens, line, boost::is_any_of(" ")); // here it is
 			for(auto& s: tokens) {
@@ -143,23 +118,106 @@ int main(int argc, char * argv[]) {
 	}
 
 
+	/* Translate from points to blocks */
+
+
 	/*
-		Update Test
+		Update Test*/
 
 	begint = clock();
 	ftime(&begintb);
 
 	for (int i = 0; i < numItems; i++) {
-		//sa->update(vdata[i]);
-		alg->rtree->updateSketch(new RT::Point<int,int> (vdata[i], 0));
+		alg->update(vdata[i % datalen]);
 	}
 
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "Update %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+	//printf( "Update %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
 
-	return 1;
+
+	/*
+		Query Test
+
+	begint = clock();
+	ftime(&begintb);
+
+	for (int i = 0; i < numItems; i++) {
+		int x1 = rand() % epsilon_1;
+		int diff1 = rand() % (epsilon_1 - x1);
+		int y1 = rand() % epsilon_1;
+		int diff2 = rand() % (epsilon_1 - y1);
+
+		alg->rtree->countInSketchRange(f(x1, y1), f(x1 + diff1, y1 + diff2));
+	}
+
+	endt = clock();
+	ftime(&endtb);
+	time = ((double)(endt-begint))/CLK_PER_SEC;
+	printf( "Query %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+  
+
+
+	/*
+		Query Test - small rectangles*/
+
+	begint = clock();
+	ftime(&begintb);
+
+	for (int i = 0; i < numItems; i++) {
+		int x1 = rand() % epsilon_1;
+		int diff1 = 1;
+		int y1 = rand() % epsilon_1;
+		int diff2 = 1;
+
+		alg->rtree->countInSketchRange(f(x1, y1), f(x1 + diff1, y1 + diff2));
+	}
+
+	endt = clock();
+	ftime(&endtb);
+	time = ((double)(endt-begint))/CLK_PER_SEC;
+	printf( "QuerySmall %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+
+
+	/*
+		Query Test - BIG rectangles */
+
+	begint = clock();
+	ftime(&begintb);
+
+	for (int i = 0; i < numItems; i++) {
+		int x1 = rand() % epsilon_1;
+		int diff1 = 1;
+		int y1 = rand() % epsilon_1;
+		int diff2 = 1;
+
+		alg->rtree->countInSketchRange(f(0, 0), f(epsilon_1, epsilon_1));
+	}
+
+	endt = clock();
+	ftime(&endtb);
+	time = ((double)(endt-begint))/CLK_PER_SEC;
+	printf( "QueryBig %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+
+
+
+/*
+		Update Test in 3-d
+
+	begint = clock();
+	ftime(&begintb);
+
+	for (int i = 0; i < numItems; i++) {
+		alg->update3(vdata[i % datalen]);
+	}
+
+	endt = clock();
+	ftime(&endtb);
+	time = ((double)(endt-begint))/CLK_PER_SEC;
+	printf( "Update3 %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+
+	return 0;
 }
 
 
@@ -185,34 +243,87 @@ RegionAlg::RegionAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glow
 	eps_1 = epsilon_1; //1\epsilon
 
 
-	/* Prepare the points to build the range tree */
-	std::vector<RT::Point<int,int>> points = {};
+	if (dimensions == 2) {
+		/* Prepare the points to build the range tree */
+		std::vector<RT::Point<int,int>> points = {};
 
-	auto f = [](int a, int b) { std::vector<int> d = {a, b}; return d;}; //TODO: this is relevant only for 2d
-	for (int i = 1; i <= epsilon_1; i++) {
-		for (int j = 1; j <= epsilon_1; j++) {
-			RT::Point<int, int> a(f(i, j), 0);
-			points.push_back(a);
+		for (int i = 1; i <= epsilon_1; i++) {
+			for (int j = 1; j <= epsilon_1; j++) {
+				RT::Point<int, int> a(f(i, j), 0);
+				points.push_back(a);
+			}
 		}
+
+		/* Construct the range tree */
+		rtree = new RT::RangeTree<int,int>(points);
+	} else if (dimensions == 3) {
+		/* Prepare the points to build the range tree */
+		std::vector<RT::Point<int,int>> points = {};
+
+		for (int i = 1; i <= epsilon_1; i++) {
+			for (int j = 1; j <= epsilon_1; j++) {
+				for (int k = 1; k <= epsilon_1; k++) {
+					RT::Point<int, int> a(f3(i, j, k), 0);
+					points.push_back(a);
+				}
+			}
+		}
+
+		/* Construct the range tree */
+		rtree = new RT::RangeTree<int,int>(points);
 	}
-
-	/* Construct the range tree */
-	rtree = new RT::RangeTree<int,int>(points);
-
-	rtree->print(); //TODO: this is only for testing
 }
 
 
 void RegionAlg::update(vector<int> x)
 {
+	int firstCor = ceil (x[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCor = ceil (x[1] / ceil(double(upper_limits[1])/double(eps_1)));
 
+	//TODO: this is only for 2d and the lowers start from 0!
+	return rtree->updateSketch(new RT::Point<int,int> (f(firstCor,secondCor), 0));
+}
+
+void RegionAlg::update3(vector<int> x)
+{
+	int firstCor = ceil (x[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCor = ceil (x[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int third = ceil (x[2] / ceil(double(upper_limits[2])/double(eps_1)));
+
+	//TODO: this is only for 2d and the lowers start from 0!
+	return rtree->updateSketch(new RT::Point<int,int> (f3(firstCor,secondCor,third), 0));
 }
 
 
-int RegionAlg::query(vector<int> x, vector<int>& lower, vector<int>& upper)
+int RegionAlg::countQuery(vector<int>& lower, vector<int>& upper)
 {
-	//TODO implementation
+	//TODO deal when lower_limits = 0;
 
-	return 1;
+	int firstCorLower = ceil (lower[0] / ceil(double (lower_limits[0])/double(eps_1)));
+	int secondCorLower = ceil (lower[1] / ceil(double(lower_limits[1])/double(eps_1)));
+
+
+	int firstCorUpper = ceil (upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCorUpper = ceil (upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
+
+
+
+	return rtree->countInSketchRange(f(firstCorLower,secondCorLower), f(firstCorUpper,secondCorUpper));
+}
+
+int RegionAlg::countQuery3(vector<int>& lower, vector<int>& upper)
+{
+	//TODO deal when lower_limits = 0;
+
+	int firstCorLower = ceil (lower[0] / ceil(double (lower_limits[0])/double(eps_1)));
+	int secondCorLower = ceil (lower[1] / ceil(double(lower_limits[1])/double(eps_1)));
+	int thirdCorLower = ceil (lower[2] / ceil(double(lower_limits[2])/double(eps_1)));
+
+
+	int firstCorUpper = ceil (upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCorUpper = ceil (upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int thirdCorUpper = ceil (upper[2] / ceil(double(upper_limits[2])/double(eps_1)));
+
+	return rtree->countInSketchRange(f3(firstCorLower,secondCorLower, thirdCorLower), f3(firstCorUpper,secondCorUpper, thirdCorUpper));
 }
 
