@@ -30,7 +30,8 @@ public:
 	RT::RangeTree<int,int>* rtree;
 	NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerlimits);
 	void update(vector<int> x);
-	int countQuery(vector<int>& lower, vector<int>& upper);
+	int countQueryTrees(vector<int>& lower, vector<int>& upper);
+	int countQueryNaive(vector<int>& lower, vector<int>& upper);
 	void update3(vector<int> x);
 	int countQuery3(vector<int>& lower, vector<int>& upper);
 	std::vector<int> fromCorToBlock(vector<int> cor);

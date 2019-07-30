@@ -42,9 +42,13 @@ int main(int argc, char * argv[]) {
 	ifstream myfile ("dfacebookdataset2d.txt");
 
 
-	upper_limits[0] = 300;
-	upper_limits[1] = 300;
-	upper_limits[2] = 300;
+//	upper_limits[0] = 300;
+//	upper_limits[1] = 300;
+//	upper_limits[2] = 300;
+	upper_limits[0] = 20;
+	upper_limits[1] = 20;
+	upper_limits[2] = 20;
+
 	lower_limits[0] = 0;
 	lower_limits[1] = 0;
 	lower_limits[2] = 0;
@@ -85,7 +89,7 @@ int main(int argc, char * argv[]) {
 
 	NapaAlg* alg = new NapaAlg(d, epsilon_1, upper_limits, lower_limits);
 
-/*
+
 	// For basic testing
     RT::Point<int,int>* a = new RT::Point<int,int> (f(2,4), 0);
 	vector<int> lower;
@@ -98,9 +102,9 @@ int main(int argc, char * argv[]) {
 	alg->update(f(7,7));
 	alg->update(f(8,12));
 
-	alg->countQuery(lower, upper);
+	alg->countQueryNaive(lower, upper);
 
-*/
+
 
 	clock_t begint, endt;
 	struct timeb begintb, endtb;
@@ -128,7 +132,7 @@ int main(int argc, char * argv[]) {
 
 
 	/*
-		Update Test */
+		Update Test
 
 	begint = clock();
 	ftime(&begintb);
@@ -140,13 +144,13 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	//printf( "UpdateNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	//printf( "UpdateNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 
 
 
 	/*
-		Query Test */
+		Query Test
 
 	begint = clock();
 	ftime(&begintb);
@@ -166,13 +170,13 @@ int main(int argc, char * argv[]) {
 		upper.push_back(upper1);
 		upper.push_back(upper1 + 1 +(rand() % (upper_limits[1] - upper1 - 1)));
 
-		alg->countQuery(lower, upper);
+		alg->countQueryTrees(lower, upper);
 	}
 
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "QueryNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	printf( "QueryNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 }
 
@@ -236,11 +240,8 @@ NapaAlg::NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerli
 			col_trees[i] = NULL;
 		}
 
-
-
 		/* Construct the range tree */
 		rtree = new RT::RangeTree<int,int>(points);
-
 
 	} else if (dimensions == 3) {
 		/* Prepare the points to build the range tree */
@@ -356,7 +357,7 @@ void NapaAlg::update3(vector<int> x)
 }
 
 
-int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
+int NapaAlg::countQueryTrees(vector<int>& lower, vector<int>& upper)
 {
 	//TODO deal when lower_limits = 0;
 
@@ -386,23 +387,25 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 
 
 	int surplus = 0;
+	int surplus1, surplus2, surplus3, surplus4;
 
 	if (gx1 < x1) {
 
 		/* compute index */
 
 		int index = firstCorLower;
+		surplus1 = 0;
 
 		if (samples_col[index].empty()) {
-			surplus = 0;
+			surplus1 = 0;
 		} else {
 			if (col_trees[index] == NULL) {
 				col_trees[index] = new RT::RangeTree<int,int>(samples_col[index]);
 			}
 
-			surplus +=  col_trees[index]->countInRange(f(gx1,lower[1]), f(x1,upper[1]));
+			surplus1 +=  col_trees[index]->countInRange(f(gx1,lower[1]), f(x1,upper[1]));
 
-			surplus = (surplus/samples_col_num[index])*(stream_size);
+			surplus1 = (surplus1/samples_col_num[index])*(stream_size);
 		}
 	}
 
@@ -414,17 +417,18 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 		/* compute index */
 
 		int index = secondCorLower - 1;
+		surplus2 = 0;
 
 		if (samples_row[index].empty()) {
-			surplus = 0;
+			surplus2 = 0;
 		} else {
 			if (row_trees[index] == NULL) {
 				row_trees[index] = new RT::RangeTree<int,int>(samples_row[index]);
 			}
 
-			surplus +=  row_trees[index]->countInRange(f(lower[0],gy1), f(upper[0],y1));
+			surplus2 +=  row_trees[index]->countInRange(f(lower[0],gy1), f(upper[0],y1));
 
-			surplus = (surplus/samples_row_num[index])*(stream_size);
+			surplus2 = (surplus2/samples_row_num[index])*(stream_size);
 		}
 	}
 
@@ -433,16 +437,17 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 		/* compute index */
 
 		int index = firstCorUpper + 1;
+		surplus3 = 0;
 		if (samples_col[index].empty()) {
-			surplus = 0;
+			surplus3 = 0;
 		} else {
 			if (col_trees[index] == NULL) {
 				col_trees[index] = new RT::RangeTree<int,int>(samples_col[index]);
 			}
 
-			surplus +=  col_trees[index]->countInRange(f(x2,lower[1]), f(gx2,upper[1]));
+			surplus3 +=  col_trees[index]->countInRange(f(x2,lower[1]), f(gx2,upper[1]));
 
-			surplus = (surplus/samples_col_num[index])*(stream_size);
+			surplus3 = (surplus3/samples_col_num[index])*(stream_size);
 		}
 	}
 
@@ -451,18 +456,143 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 		/* compute index */
 
 		int index = secondCorUpper + 1;
+		surplus4 = 0;
 		if (samples_row[index].empty()) {
-			surplus = 0;
+			surplus4 = 0;
 		} else {
 			if (row_trees[index] == NULL) {
 				row_trees[index] = new RT::RangeTree<int,int>(samples_row[index]);
 			}
 
-			surplus +=  row_trees[index]->countInRange(f(lower[0],y2), f(upper[0], gy2));
+			surplus4 +=  row_trees[index]->countInRange(f(lower[0],y2), f(upper[0], gy2));
 
-			surplus = (surplus/samples_row_num[index])*(stream_size);
+			surplus4 = (surplus4/samples_row_num[index])*(stream_size);
 		}
 	}
+
+	surplus = surplus1 + surplus2 + surplus3 + surplus4;
+
+	return surplus + result;
+}
+
+
+int NapaAlg::countQueryNaive(vector<int>& lower, vector<int>& upper)
+{
+	//TODO deal when lower_limits = 0;
+
+	int firstCorLower = ceil(lower[0] / ceil(double (upper_limits[0])/double(eps_1)));
+	int secondCorLower = ceil(lower[1] / ceil(double(upper_limits[1])/double(eps_1)));
+
+	int firstCorUpper = floor(upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCorUpper = floor(upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
+
+
+	int result = rtree->countInSketchRange(f(firstCorLower + 1,secondCorLower+1), f(firstCorUpper,secondCorUpper));//TODO: think about papa bounds
+
+	int gx1 = lower[0];
+	int x1 = firstCorLower*ceil(double (upper_limits[0])/double(eps_1));
+
+
+	int gx2 = upper[0];
+	int x2 = firstCorUpper*ceil(double (upper_limits[0])/double(eps_1));
+
+
+	int gy1 = lower[1];
+	int y1 = secondCorLower*ceil(double (upper_limits[0])/double(eps_1));
+
+
+	int gy2 = upper[1];
+	int y2 = secondCorUpper*ceil(double (upper_limits[0])/double(eps_1));
+
+
+	int surplus = 0;
+	int surplus1, surplus2, surplus3, surplus4;
+
+	if (gx1 < x1) {
+
+		/* compute index */
+
+		int index = firstCorLower;
+		surplus1 = 0;
+
+		if (samples_col[index].empty()) {
+			surplus1 = 0;
+		} else {
+
+			std::vector<RT::Point<int, int>> v = samples_col[index];
+			for(auto it=std::begin(v); it!=std::end(v); ++it) {
+				if (((*it).asVector())[0] <= x1 && ((*it).asVector())[0] >= gx1 && ((*it).asVector())[1] <= upper[1] && ((*it).asVector())[1] >= lower[1])
+					++surplus1;
+			}
+
+			surplus1 = (surplus1/samples_col_num[index])*(stream_size);
+		}
+	}
+
+
+
+	if (gy1 < y1) {
+
+
+		/* compute index */
+
+		int index = secondCorLower - 1;
+		surplus2 = 0;
+		if (samples_row[index].empty()) {
+			surplus2 = 0;
+		} else {
+
+			std::vector<RT::Point<int, int>> v = samples_row[index];
+			for(auto it=std::begin(v); it!=std::end(v); ++it) {
+				if (((*it).asVector())[0] <= upper[0] && ((*it).asVector())[0] >= lower[0] && ((*it).asVector())[1] <= y1 && ((*it).asVector())[1] >= gy1)
+					++surplus2;
+			}
+
+			surplus2 = (surplus2/samples_col_num[index])*(stream_size);
+		}
+	}
+
+	if (x2 < gx2) {
+
+		/* compute index */
+
+		int index = firstCorUpper + 1;
+		surplus3 = 0;
+		if (samples_col[index].empty()) {
+			surplus3 = 0;
+		} else {
+
+			std::vector<RT::Point<int, int>> v = samples_col[index];
+			for(auto it=std::begin(v); it!=std::end(v); ++it) {
+				if (((*it).asVector())[0] <= gx2 && ((*it).asVector())[0] >= x2 && ((*it).asVector())[1] <= upper[1] && ((*it).asVector())[1] >= lower[1])
+					++surplus3;
+			}
+
+			surplus3 = (surplus3/samples_col_num[index])*(stream_size);
+		}
+	}
+
+
+	if (y2 < gy2) {
+		/* compute index */
+
+		int index = secondCorUpper + 1;
+		surplus4 = 0;
+		if (samples_row[index].empty()) {
+			surplus4 = 0;
+		} else {
+
+			std::vector<RT::Point<int, int>> v = samples_col[index];
+			for(auto it=std::begin(v); it!=std::end(v); ++it) {
+				if (((*it).asVector())[0] <= upper[0] && ((*it).asVector())[0] >= lower[0] && ((*it).asVector())[1] <= gy2 && ((*it).asVector())[1] >= y2)
+					++surplus4;
+			}
+
+			surplus4 = (surplus4/samples_col_num[index])*(stream_size);
+		}
+	}
+
+	surplus = surplus1 + surplus2 + surplus3 + surplus4;
 
 
 	return surplus + result;
