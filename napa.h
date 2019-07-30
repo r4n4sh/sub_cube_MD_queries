@@ -24,6 +24,7 @@ private:
 	RT::RangeTree<int,int>** row_trees;
 	RT::RangeTree<int,int>** col_trees;
 	int sample_size;
+	int stream_size;
 public:
 
 	RT::RangeTree<int,int>* rtree;

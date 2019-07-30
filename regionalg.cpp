@@ -38,9 +38,9 @@ int main(int argc, char * argv[]) {
 	int d = 2;
 	ifstream myfile ("dfacebookdataset2d.txt");
 
-	upper_limits[0] = 200;
-	upper_limits[1] = 200;
-	upper_limits[2] = 200;
+	upper_limits[0] = 300;
+	upper_limits[1] = 300;
+	upper_limits[2] = 300;
 	lower_limits[0] = 0;
 	lower_limits[1] = 0;
 	lower_limits[2] = 0;
@@ -122,7 +122,8 @@ int main(int argc, char * argv[]) {
 
 
 	/*
-		Update Test*/
+		Update Test
+	*/
 
 	begint = clock();
 	ftime(&begintb);
@@ -139,6 +140,7 @@ int main(int argc, char * argv[]) {
 
 	/*
 		Query Test
+	*/
 
 	begint = clock();
 	ftime(&begintb);
@@ -155,12 +157,12 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "Query %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+	printf( "Query %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
   
 
 
 	/*
-		Query Test - small rectangles*/
+		Query Test - small rectangles
 
 	begint = clock();
 	ftime(&begintb);
@@ -177,11 +179,11 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "QuerySmall %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	printf( "QuerySmall %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 
 	/*
-		Query Test - BIG rectangles */
+		Query Test - BIG rectangles 
 
 	begint = clock();
 	ftime(&begintb);
@@ -198,7 +200,7 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "QueryBig %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	printf( "QueryBig %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 
 
@@ -297,18 +299,15 @@ void RegionAlg::update3(vector<int> x)
 
 int RegionAlg::countQuery(vector<int>& lower, vector<int>& upper)
 {
-	//TODO deal when lower_limits = 0;
 
-	int firstCorLower = ceil (lower[0] / ceil(double (lower_limits[0])/double(eps_1)));
-	int secondCorLower = ceil (lower[1] / ceil(double(lower_limits[1])/double(eps_1)));
+	int firstCorLower = ceil(lower[0] / ceil(double (upper_limits[0])/double(eps_1)));
+	int secondCorLower = ceil(lower[1] / ceil(double(upper_limits[1])/double(eps_1)));
 
-
-	int firstCorUpper = ceil (upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
-	int secondCorUpper = ceil (upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int firstCorUpper = floor(upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCorUpper = floor(upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
 
 
-
-	return rtree->countInSketchRange(f(firstCorLower,secondCorLower), f(firstCorUpper,secondCorUpper));
+	return rtree->countInSketchRange(f(firstCorLower + 1,secondCorLower+1), f(firstCorUpper,secondCorUpper));
 }
 
 int RegionAlg::countQuery3(vector<int>& lower, vector<int>& upper)

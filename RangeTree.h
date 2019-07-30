@@ -778,11 +778,11 @@ namespace RangeTree {
                 int sum = 0;
                 for (int i = 0; i < nodes.size(); i++) {
                     if (nodes[i]->isLeaf) {
-                        std::cout << "a leaf node: " <<  vectorToInt(nodes[i]->point->asVector()) << std::endl;
+                    //    std::cout << "a leaf node: " <<  vectorToInt(nodes[i]->point->asVector()) << std::endl;
        
                         sum += nodes[i]->totalPoints();
                     } else {
-                        std::cout << "NON leaf node: " <<  vectorToInt(nodes[i]->point->asVector()) << std::endl;
+                    //    std::cout << "NON leaf node: " <<  vectorToInt(nodes[i]->point->asVector()) << std::endl;
 
                         sum += nodes[i]->cumuCountPoints[inds[i].second + 1] -
                                 nodes[i]->cumuCountPoints[inds[i].first];

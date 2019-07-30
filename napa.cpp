@@ -33,7 +33,7 @@ int main(int argc, char * argv[]) {
 
 	int *upper_limits = new int[3];
 	int *lower_limits = new int[3];
-	int epsilon_1 = 8;
+	int epsilon_1 = 4;
 	//int numItems = 990;
 	int numItems = 200000;
 	//int numItems = 10;
@@ -42,9 +42,9 @@ int main(int argc, char * argv[]) {
 	ifstream myfile ("dfacebookdataset2d.txt");
 
 
-	upper_limits[0] = 200;
-	upper_limits[1] = 200;
-	upper_limits[2] = 200;
+	upper_limits[0] = 300;
+	upper_limits[1] = 300;
+	upper_limits[2] = 300;
 	lower_limits[0] = 0;
 	lower_limits[1] = 0;
 	lower_limits[2] = 0;
@@ -84,6 +84,23 @@ int main(int argc, char * argv[]) {
 	}
 
 	NapaAlg* alg = new NapaAlg(d, epsilon_1, upper_limits, lower_limits);
+
+/*
+	// For basic testing
+    RT::Point<int,int>* a = new RT::Point<int,int> (f(2,4), 0);
+	vector<int> lower;
+	vector<int> upper;
+	lower.push_back(6);
+	lower.push_back(5);
+	upper.push_back(15);
+	upper.push_back(15);
+
+	alg->update(f(7,7));
+	alg->update(f(8,12));
+
+	alg->countQuery(lower, upper);
+
+*/
 
 	clock_t begint, endt;
 	struct timeb begintb, endtb;
@@ -130,7 +147,6 @@ int main(int argc, char * argv[]) {
 
 	/*
 		Query Test */
-
 
 	begint = clock();
 	ftime(&begintb);
@@ -181,7 +197,7 @@ NapaAlg::NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerli
 	upper_limits = gupperlimits;
 	lower_limits = glowerlimits;
 	eps_1 = epsilon_1; //1\epsilon
-	sample_size = epsilon_1 * log2(ceil(1/delta));
+	sample_size = (epsilon_1)*(epsilon_1) * log2(ceil(1/delta));
 
 	if (dimensions == 2) {
 		/* Prepare the points to build the range tree */
@@ -196,6 +212,8 @@ NapaAlg::NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerli
 
 
 		/* Count number of the samples in each row and col */
+		stream_size = 0;
+
 		samples_row_num = new int[epsilon_1 + 1];
 		samples_col_num = new int[epsilon_1 + 1];
 		
@@ -260,16 +278,12 @@ void NapaAlg::update(vector<int> x)
 	###############################################################
 	*/
 
-	++samples_row_num[secondCor];
-	if(samples_row_num[secondCor] < sample_size) {
-		RT::Point<int, int> a(x, 0);
-		samples_row[secondCor].push_back(a);
-	} else if (samples_row_num[secondCor] == sample_size) {
-		RT::Point<int, int> a(x, 0);
-		samples_row[secondCor].push_back(a);
 
-		/*build the relevant range tree*/
-		row_trees[secondCor] = new RT::RangeTree<int,int>(samples_row[secondCor]);
+	++stream_size;
+	++samples_row_num[secondCor];
+	if(stream_size <= sample_size) {
+		RT::Point<int, int> a(x, 0);
+		samples_row[secondCor].push_back(a);
 	} else {
 		int j = rand() % (samples_row_num[secondCor]+1);
 		// If the randomly picked index is smaller than k, then replace
@@ -281,11 +295,14 @@ void NapaAlg::update(vector<int> x)
 		   ############################################### */
 
 			//std::vector<int>* vout = samples_row[secondCor][j];
-			RT::Point<int, int> vout = samples_row[secondCor].at(j);
+			//RT::Point<int, int> vout = samples_row[secondCor].at(j);
 			//RT::Point<double,int> pointout(*x, 0);
 			RT::Point<int,int> pointin(x, 0);
-			row_trees[secondCor]->replace(pointin, vout);
-			samples_row[secondCor][j] = pointin;
+			//row_trees[secondCor]->replace(pointin, vout);
+			samples_row[secondCor].push_back(pointin);
+			if (row_trees[secondCor] != NULL) {
+				row_trees[secondCor] = NULL;
+			}
 		}
 	}
 
@@ -300,16 +317,9 @@ void NapaAlg::update(vector<int> x)
 
 
 	++samples_col_num[firstCor];
-	if (samples_col_num[firstCor] < sample_size) {
+	if (stream_size <= sample_size) {
 		RT::Point<int, int> a(x, 0);
 		samples_col[firstCor].push_back(a);
-		return;
-	} else if (samples_col_num[firstCor] == sample_size) {
-		RT::Point<int, int> a(x, 0);
-		samples_col[firstCor].push_back(a);
-
-		/*build the relevant range tree*/
-		col_trees[firstCor] = new RT::RangeTree<int,int>(samples_col[firstCor]);
 		return;
 	} else {
 		int j = rand() % (samples_col_num[firstCor]+1);
@@ -321,11 +331,15 @@ void NapaAlg::update(vector<int> x)
 		    Replace between j and the new item
 		   ############################################### */
 
-			RT::Point<int, int> vout = samples_col[firstCor].at(j);
+			//RT::Point<int, int> vout = samples_col[firstCor].at(j);
 			//RT::Point<double,int> pointout(*x, 0);
 			RT::Point<int,int> pointin(x, 0);
-			col_trees[firstCor]->replace(pointin, vout);
-			samples_col[firstCor][j] = pointin;
+			//col_trees[firstCor]->replace(pointin, vout);
+			samples_col[firstCor].push_back(pointin);
+			if (col_trees[firstCor] != NULL) {
+				col_trees[firstCor] = NULL;
+			}
+
 		}
 	}
 
@@ -349,11 +363,11 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 	int firstCorLower = ceil(lower[0] / ceil(double (upper_limits[0])/double(eps_1)));
 	int secondCorLower = ceil(lower[1] / ceil(double(upper_limits[1])/double(eps_1)));
 
-	int firstCorUpper = ceil(upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
-	int secondCorUpper = ceil(upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int firstCorUpper = floor(upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
+	int secondCorUpper = floor(upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
 
 
-	int result = rtree->countInSketchRange(f(firstCorLower,secondCorLower), f(firstCorUpper,secondCorUpper));
+	int result = rtree->countInSketchRange(f(firstCorLower + 1,secondCorLower+1), f(firstCorUpper,secondCorUpper));//TODO: think about papa bounds
 
 	int gx1 = lower[0];
 	int x1 = firstCorLower*ceil(double (upper_limits[0])/double(eps_1));
@@ -371,27 +385,24 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 	int y2 = secondCorUpper*ceil(double (upper_limits[0])/double(eps_1));
 
 
+	int surplus = 0;
+
 	if (gx1 < x1) {
 
+		/* compute index */
 
-		/*  Deal with y axis - part 1*/
-		for (int i = floor(double(lower[1]*eps_1) / double(upper_limits[1])); i <= ceil(double(upper[1]*eps_1) / double(upper_limits[1])); i++){
-		
+		int index = firstCorLower;
 
-			if (i == floor(double(lower[1]*eps_1) / double(upper_limits[1]))) {
-				if (col_trees[i])
-					result += col_trees[i]->countInSketchRange(f(gx1,gy1), f(x1, y1));
-				continue;
+		if (samples_col[index].empty()) {
+			surplus = 0;
+		} else {
+			if (col_trees[index] == NULL) {
+				col_trees[index] = new RT::RangeTree<int,int>(samples_col[index]);
 			}
-			if (i == ceil(double(upper[1]*eps_1) / double(upper_limits[1]))) {
-				if (col_trees[i])
-					result += col_trees[i]->countInSketchRange(f(gx1,y2), f(x1, gy2));
-				continue;
-			}
-		
-			if (col_trees[i])
-				result += col_trees[i]->countInSketchRange(f(gx1,(i-1)*ceil(double(upper_limits[1])/double(eps_1))), f(x1,(i)*ceil(double(upper_limits[1])/double(eps_1))));
 
+			surplus +=  col_trees[index]->countInRange(f(gx1,lower[1]), f(x1,upper[1]));
+
+			surplus = (surplus/samples_col_num[index])*(stream_size);
 		}
 	}
 
@@ -400,76 +411,61 @@ int NapaAlg::countQuery(vector<int>& lower, vector<int>& upper)
 	if (gy1 < y1) {
 
 
-		/*  Deal with y axis - part 1*/
-		for (int i = floor(double(lower[0]*eps_1) / double(upper_limits[0])); i <= ceil(double(upper[0]*eps_1) / double(upper_limits[0])); i++){
-		
+		/* compute index */
 
-			if (i == floor(double(lower[0]*eps_1) / double(upper_limits[0]))) {
-				if (row_trees[i])
-					result += row_trees[i]->countInSketchRange(f(gx1,gy1), f(x1, y1));
-				continue;
+		int index = secondCorLower - 1;
+
+		if (samples_row[index].empty()) {
+			surplus = 0;
+		} else {
+			if (row_trees[index] == NULL) {
+				row_trees[index] = new RT::RangeTree<int,int>(samples_row[index]);
 			}
 
-			if (i == ceil(double(upper[0]*eps_1) / double(upper_limits[0]))) {
-				if (row_trees[i])
-					result += row_trees[i]->countInSketchRange(f(x2,gy1), f(gx2, y1));
-				continue;
-			}
+			surplus +=  row_trees[index]->countInRange(f(lower[0],gy1), f(upper[0],y1));
 
-			if (row_trees[i])
-				result += row_trees[i]->countInSketchRange(f((i-1)*ceil(double(upper_limits[0])/double(eps_1)),gy1), f((i)*ceil(double(upper_limits[0])/double(eps_1)),y1));
-
+			surplus = (surplus/samples_row_num[index])*(stream_size);
 		}
 	}
 
 	if (x2 < gx2) {
 
-		for (int i = floor(double(lower[1]*eps_1) / double(upper_limits[1])); i <= ceil(double(upper[1]*eps_1) / double(upper_limits[1])); i++){
-		
+		/* compute index */
 
-			if (i == floor(double(lower[1]*eps_1) / double(upper_limits[1]))) {
-				if (col_trees[i])
-					result += col_trees[i]->countInSketchRange(f(x2,gy1), f(gx2, y1));
-				continue;
+		int index = firstCorUpper + 1;
+		if (samples_col[index].empty()) {
+			surplus = 0;
+		} else {
+			if (col_trees[index] == NULL) {
+				col_trees[index] = new RT::RangeTree<int,int>(samples_col[index]);
 			}
-			if (i == ceil(double(upper[1]*eps_1) / double(upper_limits[1]))) {
-				if (col_trees[i])
-					result += col_trees[i]->countInSketchRange(f(x2,y2), f(gx2, gy2));
-				continue;
-			}
-		
-			if (col_trees[i])
-				result += col_trees[i]->countInSketchRange(f(x2,(i-1)*ceil(double(upper_limits[1])/double(eps_1))), f(gx2,(i)*ceil(double(upper_limits[1])/double(eps_1))));
 
+			surplus +=  col_trees[index]->countInRange(f(x2,lower[1]), f(gx2,upper[1]));
+
+			surplus = (surplus/samples_col_num[index])*(stream_size);
 		}
-
 	}
 
 
 	if (y2 < gy2) {
-		for (int i = floor(double(lower[0]*eps_1) / double(upper_limits[0])); i <= ceil(double(upper[0]*eps_1) / double(upper_limits[0])); i++){
-	
+		/* compute index */
 
-		if (i == floor(double(lower[0]*eps_1) / double(upper_limits[0]))) {
-			if (row_trees[i])
-				result += row_trees[i]->countInSketchRange(f(gx1,y2), f(x1, gy2));
-			continue;
-		}
+		int index = secondCorUpper + 1;
+		if (samples_row[index].empty()) {
+			surplus = 0;
+		} else {
+			if (row_trees[index] == NULL) {
+				row_trees[index] = new RT::RangeTree<int,int>(samples_row[index]);
+			}
 
-		if (i == ceil(double(upper[0]*eps_1) / double(upper_limits[0]))) {
-			if (row_trees[i])
-				result += row_trees[i]->countInSketchRange(f(x2,y2), f(gx2, gy2));
-			continue;
-		}
+			surplus +=  row_trees[index]->countInRange(f(lower[0],y2), f(upper[0], gy2));
 
-		if (row_trees[i])
-			result += row_trees[i]->countInSketchRange(f((i-1)*ceil(double(upper_limits[0])/double(eps_1)),y2), f((i)*ceil(double(upper_limits[0])/double(eps_1)),gy2));
-
+			surplus = (surplus/samples_row_num[index])*(stream_size);
 		}
 	}
 
 
-	return result;
+	return surplus + result;
 }
 
 int NapaAlg::countQuery3(vector<int>& lower, vector<int>& upper)
