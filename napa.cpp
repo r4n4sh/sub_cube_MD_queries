@@ -42,12 +42,12 @@ int main(int argc, char * argv[]) {
 	ifstream myfile ("dfacebookdataset2d.txt");
 
 
-//	upper_limits[0] = 300;
-//	upper_limits[1] = 300;
-//	upper_limits[2] = 300;
-	upper_limits[0] = 20;
-	upper_limits[1] = 20;
-	upper_limits[2] = 20;
+	upper_limits[0] = 300;
+	upper_limits[1] = 300;
+	upper_limits[2] = 300;
+//	upper_limits[0] = 20;
+//	upper_limits[1] = 20;
+//	upper_limits[2] = 20;
 
 	lower_limits[0] = 0;
 	lower_limits[1] = 0;
@@ -89,7 +89,7 @@ int main(int argc, char * argv[]) {
 
 	NapaAlg* alg = new NapaAlg(d, epsilon_1, upper_limits, lower_limits);
 
-
+/*
 	// For basic testing
     RT::Point<int,int>* a = new RT::Point<int,int> (f(2,4), 0);
 	vector<int> lower;
@@ -105,7 +105,7 @@ int main(int argc, char * argv[]) {
 	alg->countQueryNaive(lower, upper);
 
 
-
+*/
 	clock_t begint, endt;
 	struct timeb begintb, endtb;
 	double time;
@@ -132,7 +132,7 @@ int main(int argc, char * argv[]) {
 
 
 	/*
-		Update Test
+		Update Test */
 
 	begint = clock();
 	ftime(&begintb);
@@ -144,14 +144,14 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	//printf( "UpdateNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+	//printf( "UpdateNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
 
 
 
 
 	/*
-		Query Test
-
+		Query Test NAPA using trees of samples
+	*/
 	begint = clock();
 	ftime(&begintb);
 
@@ -161,14 +161,17 @@ int main(int argc, char * argv[]) {
 		vector<int> upper;
 
 		int lower1 = rand() % (upper_limits[0] - 1);
-		int upper1 =  rand() % (upper_limits[1] - 1);
+		int upper1 =  lower1 + 1 + rand() % (upper_limits[0] - lower1 - 1);
 
+
+		int lower2 = rand() % (upper_limits[1] - 1);
+		int upper2 =  lower2 + rand() % (upper_limits[1] - lower2 - 1);
 
 
 		lower.push_back(lower1);
-		lower.push_back(lower1 + 1 + (rand() % (upper_limits[0] - lower1 - 1)));
+		lower.push_back(lower2);
 		upper.push_back(upper1);
-		upper.push_back(upper1 + 1 +(rand() % (upper_limits[1] - upper1 - 1)));
+		upper.push_back(upper2);
 
 		alg->countQueryTrees(lower, upper);
 	}
@@ -176,8 +179,40 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "QueryNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+	printf( "QueryNapaTrees %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
 
+
+
+	/*
+		Query Test NAPA using scan of samples
+	*/
+	begint = clock();
+	ftime(&begintb);
+
+
+	for (int i = 0; i < numItems; i++) {
+		vector<int> lower;
+		vector<int> upper;
+
+		int lower1 = rand() % (upper_limits[0] - 1);
+		int upper1 =  lower1 + 1 + rand() % (upper_limits[0] - lower1 - 1);
+
+		int lower2 = rand() % (upper_limits[1] - 1);
+		int upper2 =  lower2 + rand() % (upper_limits[1] - lower2 - 1);
+
+
+		lower.push_back(lower1);
+		lower.push_back(lower2);
+		upper.push_back(upper1);
+		upper.push_back(upper2);
+
+		alg->countQueryNaive(lower, upper);
+	}
+
+	endt = clock();
+	ftime(&endtb);
+	time = ((double)(endt-begint))/CLK_PER_SEC;
+	printf( "QueryNapaNaive %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
 }
 
 
@@ -300,7 +335,7 @@ void NapaAlg::update(vector<int> x)
 			//RT::Point<double,int> pointout(*x, 0);
 			RT::Point<int,int> pointin(x, 0);
 			//row_trees[secondCor]->replace(pointin, vout);
-			samples_row[secondCor].push_back(pointin);
+			samples_row[secondCor][j]= pointin;
 			if (row_trees[secondCor] != NULL) {
 				row_trees[secondCor] = NULL;
 			}
@@ -336,7 +371,7 @@ void NapaAlg::update(vector<int> x)
 			//RT::Point<double,int> pointout(*x, 0);
 			RT::Point<int,int> pointin(x, 0);
 			//col_trees[firstCor]->replace(pointin, vout);
-			samples_col[firstCor].push_back(pointin);
+			samples_col[firstCor][j] = pointin;
 			if (col_trees[firstCor] != NULL) {
 				col_trees[firstCor] = NULL;
 			}
