@@ -224,6 +224,16 @@ namespace RangeTree {
                 std::cout << (*this)[dim() - 1] << ") : " << std::endl;
             }
         }
+
+
+        void printwCounter(int counter) const {
+            std::cout << "(";
+            for (int i = 0; i < dim() - 1; i++) {
+                std::cout << (*this)[i] << ", ";
+            }
+
+            std::cout << (*this)[dim() - 1] << ") : " << counter << std::endl;
+        }
     };
 
     /**
@@ -541,6 +551,7 @@ namespace RangeTree {
                       bool onLeftEdge = false,
                       bool onRightEdge = false): pointOrdering(spm.getCurrentDim()) {
             point = spm.getMidPoint();
+            counter = 0;
 
             if (spm.numUniquePoints() == 1) {
                 isLeaf = true;
@@ -861,7 +872,7 @@ namespace RangeTree {
 
                 int sum = 0;
                 std::vector<RangeTreeNode<T, S>* > nodes;
-                relevantNodes(lower, upper, nodes);
+                relevantNodesNew(lower, upper, nodes);
 
                 for (int i = 0; i < nodes.size(); i++) {
                     sum += nodes[i]->counter;
@@ -989,6 +1000,27 @@ namespace RangeTree {
                 return left->updateSketch(gpoint);
             } else {
                 return right->updateSketch(gpoint);
+            }
+        }
+
+
+        void updateSketchNew(Point<T,S>* gpoint) {
+
+            int compareInd = pointOrdering.getCompareStartIndex();
+
+            if (*gpoint == *point) {
+                updatePointSketch(point);
+                return;
+            }
+
+            if (isLeaf) {
+                return;
+            }
+
+            if (gpoint->smallerEqualPoint(*point, compareInd)) {
+                return left->updateSketchNew(gpoint);
+            } else {
+                return right->updateSketchNew(gpoint);
             }
         }
 
@@ -1208,6 +1240,57 @@ namespace RangeTree {
 
         }
 
+
+        int relevantNodesNew(const std::vector<T>& lower,
+                          const std::vector<T>& upper, std::vector<RangeTreeNode<T,S>* >& nodes) {
+            int compareInd = point->dim() - 2;
+            int sum = 0;
+
+            if (pointInRange(*point, lower, upper)) {
+
+                nodes.push_back(this);
+                //sum += CM_PointEst(sketch, vectorToInt(qpoint->asVector()));
+                sum += counter;
+
+                if (isLeaf)
+                    return sum;
+
+                return sum + left->relevantNodesNew(lower, upper, nodes) + right->relevantNodesNew(lower, upper, nodes);
+            }
+
+
+            if (lower[compareInd] == (*point)[compareInd]) {
+                if (isLeaf)
+                    return sum;
+
+                return left->relevantNodesNew(lower, upper, nodes) + right->relevantNodesNew(lower, upper, nodes);
+            }
+
+            if ((*point)[compareInd] > lower[compareInd]  && (*point)[compareInd] <= upper[compareInd]) {
+
+                if (isLeaf)
+                    return sum;
+
+                return left->relevantNodesNew(lower, upper, nodes) + right->relevantNodesNew(lower, upper, nodes);
+            }
+
+            if (upper[compareInd] < (*point)[compareInd]) {
+                if (isLeaf) {
+                    //nodes.push_back(this);// ????
+                    return sum;
+                }
+
+                return left->relevantNodesNew(lower, upper, nodes);
+            } else if (lower [compareInd] > (*point)[compareInd]){
+                if (isLeaf) {
+                    return sum;
+                }
+                return right->relevantNodesNew(lower, upper, nodes);
+            }
+
+        }
+
+
 /*##########################################################################################*/
 
         void rightFractionalCascade(const std::vector<T>& upper,
@@ -1329,6 +1412,19 @@ namespace RangeTree {
                 right->print(numIndents + 1);
             }
         }
+
+        void printwCounter(int numIndents) {
+            for (int i = 0; i < numIndents; i++) { std::cout << "\t"; }
+            if (isLeaf) {
+                point->printwCounter(counter);
+            } else {
+                point->printwCounter(counter);
+
+                left->printwCounter(numIndents + 1);
+                right->printwCounter(numIndents + 1);
+            }
+        }
+
     };
 
     /**
@@ -1494,7 +1590,8 @@ namespace RangeTree {
 
 
         void updateSketch(Point<T,S>* gpoint) {
-            return root->updateSketch(gpoint);
+            //return root->updateSketch(gpoint);
+            return root->updateSketchNew(gpoint);
         }
 
 
@@ -1586,6 +1683,10 @@ namespace RangeTree {
 
         void print() const {
             root->print(0);
+        }
+
+        void printwCounter() const {
+            root->printwCounter(0);
         }
     };
 

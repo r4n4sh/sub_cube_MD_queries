@@ -18,6 +18,8 @@ private:
 	int eps_1; //1\epsilon
 	vector<RT::Point<int,int>> *samples_row;
 	vector<RT::Point<int,int>> *samples_col;
+	vector<vector<int>> samples_overall;
+
 	int* samples_row_num;
 	int* samples_col_num;
 

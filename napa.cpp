@@ -40,7 +40,7 @@ int main(int argc, char * argv[]) {
 
 	int d = 2;
 	ifstream myfile ("dfacebookdataset2d.txt");
-
+	double emp_error = 0;
 
 	upper_limits[0] = 300;
 	upper_limits[1] = 300;
@@ -179,13 +179,14 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "QueryNapaTrees %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	printf( "QueryNapa %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	//printf( "QueryNapaTrees %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
 
 
 
 	/*
 		Query Test NAPA using scan of samples
-	*/
+
 	begint = clock();
 	ftime(&begintb);
 
@@ -212,7 +213,56 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "QueryNapaNaive %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	printf( "QueryNapaNaive %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
+
+/*====================== TEST ERROR MEMORY ===============================*/
+//#ifdef TEST_ERROR_MEMORY
+
+	double estimated, curr_error = 0;
+	double exact = 0;
+    std::vector<RT::Point<int,int>> points = {};
+    
+	for (int i = 0; i < numItems; i++) {
+		RT::Point<int,int> a(vdata[i % datalen], 0);
+		points.push_back(a);
+	}
+    RT::RangeTree<int,int> rtree(points);
+
+
+	for (int i = 0; i < numItems; i++) {
+		alg->update(vdata[i % datalen]);
+	}
+
+    for (int i = 0; i < numItems; i++)  {
+		vector<int> lower;
+		vector<int> upper;
+
+		int lower1 = rand() % (upper_limits[0] - 1);
+		int upper1 =  lower1 + 1 + rand() % (upper_limits[0] - lower1 - 1);
+
+
+		int lower2 = rand() % (upper_limits[1] - 1);
+		int upper2 =  lower2 + rand() % (upper_limits[1] - lower2 - 1);
+
+
+		lower.push_back(lower1);
+		lower.push_back(lower2);
+		upper.push_back(upper1);
+		upper.push_back(upper2);
+
+		estimated = alg->countQueryTrees(lower, upper);
+		exact = rtree.countInRange(lower, upper);
+
+		curr_error = exact - estimated;
+		curr_error = pow(curr_error, 2);
+		emp_error += curr_error;
+	}
+
+	emp_error = sqrt((emp_error/numItems));
+
+	printf( "./napa %d pairs emp error: %lf [%d eps_1]\n", numItems, emp_error, epsilon_1);
+//#endif
+
 }
 
 
@@ -309,7 +359,7 @@ void NapaAlg::update(vector<int> x)
 	/*
 	###############################################################
 
-		Add the item to the sample if the relevant row
+		Add the item to the sample if the relevant row and col
 	
 	###############################################################
 	*/
@@ -317,11 +367,13 @@ void NapaAlg::update(vector<int> x)
 
 	++stream_size;
 	++samples_row_num[secondCor];
+	++samples_col_num[firstCor];
 	if(stream_size <= sample_size) {
 		RT::Point<int, int> a(x, 0);
 		samples_row[secondCor].push_back(a);
+		samples_overall.push_back(x);
 	} else {
-		int j = rand() % (samples_row_num[secondCor]+1);
+		int j = rand() % (stream_size);
 		// If the randomly picked index is smaller than k, then replace
 		// the element present at the index with new element from stream
 
@@ -330,55 +382,42 @@ void NapaAlg::update(vector<int> x)
 		    Replace between j and the new item
 		   ############################################### */
 
-			//std::vector<int>* vout = samples_row[secondCor][j];
-			//RT::Point<int, int> vout = samples_row[secondCor].at(j);
-			//RT::Point<double,int> pointout(*x, 0);
+			std::vector<int> vout = samples_overall[j];
+			int firstCorOut = ceil (vout[0] / ceil(double(upper_limits[0])/double(eps_1)));
+			int secondCorOut = ceil (vout[1] / ceil(double(upper_limits[1])/double(eps_1)));
+
+			RT::Point<int,int> pointout(vout, 0);
+
+			/* Erase vout from the samples cells */
+
+			samples_col[firstCorOut].erase(std::remove(samples_col[firstCorOut].begin(), samples_col[firstCorOut].end(), pointout), samples_col[firstCorOut].end());
+			samples_row[secondCorOut].erase(std::remove(samples_row[secondCorOut].begin(), samples_row[secondCorOut].end(), pointout), samples_row[secondCorOut].end());
+
+
+
+			/* Add x to the samples cells */
+
 			RT::Point<int,int> pointin(x, 0);
-			//row_trees[secondCor]->replace(pointin, vout);
-			samples_row[secondCor][j]= pointin;
+			samples_row[secondCor].push_back(pointin);
+			samples_col[firstCor].push_back(pointin);
+
 			if (row_trees[secondCor] != NULL) {
 				row_trees[secondCor] = NULL;
 			}
-		}
-	}
 
-
-	/*
-	###############################################################
-
-		Add the item to the sample if the relevant col
-	
-	###############################################################
-	*/
-
-
-	++samples_col_num[firstCor];
-	if (stream_size <= sample_size) {
-		RT::Point<int, int> a(x, 0);
-		samples_col[firstCor].push_back(a);
-		return;
-	} else {
-		int j = rand() % (samples_col_num[firstCor]+1);
-		// If the randomly picked index is smaller than k, then replace
-		// the element present at the index with new element from stream
-
-		if ( j < sample_size) {
-		/* ###############################################
-		    Replace between j and the new item
-		   ############################################### */
-
-			//RT::Point<int, int> vout = samples_col[firstCor].at(j);
-			//RT::Point<double,int> pointout(*x, 0);
-			RT::Point<int,int> pointin(x, 0);
-			//col_trees[firstCor]->replace(pointin, vout);
-			samples_col[firstCor][j] = pointin;
 			if (col_trees[firstCor] != NULL) {
 				col_trees[firstCor] = NULL;
 			}
 
+			if (row_trees[secondCorOut] != NULL) {
+				row_trees[secondCorOut] = NULL;
+			}
+
+			if (col_trees[firstCorOut] != NULL) {
+				col_trees[firstCorOut] = NULL;
+			}
 		}
 	}
-
 }
 
 void NapaAlg::update3(vector<int> x)
@@ -583,7 +622,7 @@ int NapaAlg::countQueryNaive(vector<int>& lower, vector<int>& upper)
 					++surplus2;
 			}
 
-			surplus2 = (surplus2/samples_col_num[index])*(stream_size);
+			surplus2 = (surplus2/samples_row_num[index])*(stream_size);
 		}
 	}
 
@@ -623,7 +662,7 @@ int NapaAlg::countQueryNaive(vector<int>& lower, vector<int>& upper)
 					++surplus4;
 			}
 
-			surplus4 = (surplus4/samples_col_num[index])*(stream_size);
+			surplus4 = (surplus4/samples_row_num[index])*(stream_size);
 		}
 	}
 

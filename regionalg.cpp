@@ -32,15 +32,21 @@ int main(int argc, char * argv[]) {
 
 	int *upper_limits = new int[3];
 	int *lower_limits = new int[3];
-	int epsilon_1 = 10;
-	//int numItems = 99003;
-	int numItems = 200000;
+	int epsilon_1 = 16;
+	int numItems = 10;
+	//int numItems = 200000; //TODO testing
 	int d = 2;
-	ifstream myfile ("dfacebookdataset2d.txt");
+	//ifstream myfile ("dfacebookdataset2d.txt");
+	ifstream myfile ("dataset.txt"); //TODO: testing
 
-	upper_limits[0] = 300;
-	upper_limits[1] = 300;
-	upper_limits[2] = 300;
+	double emp_error = 0;
+
+	//upper_limits[0] = 20;
+	//upper_limits[1] = 20;
+	//upper_limits[2] = 20;
+	upper_limits[0] = 300;//TODO testing
+	upper_limits[1] = 300;//TODO testing
+	upper_limits[2] = 300;//TODO testing
 	lower_limits[0] = 0;
 	lower_limits[1] = 0;
 	lower_limits[2] = 0;
@@ -100,7 +106,9 @@ int main(int argc, char * argv[]) {
 	struct timeb begintb, endtb;
 	double time;
 	string line;
+	//int datalen = 200000; //TODO testing
 	int datalen = 200000;
+
 	vector<int> vdata[datalen];
 
     std::vector<std::string> tokens;
@@ -123,8 +131,6 @@ int main(int argc, char * argv[]) {
 
 	/*
 		Update Test
-	*/
-
 	begint = clock();
 	ftime(&begintb);
 
@@ -135,13 +141,11 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	//printf( "Update %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	//printf( "Update %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 
 	/*
 		Query Test
-	*/
-
 	begint = clock();
 	ftime(&begintb);
 
@@ -157,7 +161,7 @@ int main(int argc, char * argv[]) {
 	endt = clock();
 	ftime(&endtb);
 	time = ((double)(endt-begint))/CLK_PER_SEC;
-	printf( "Query %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+	printf( "Query %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
   
 
 
@@ -219,6 +223,68 @@ int main(int argc, char * argv[]) {
 	time = ((double)(endt-begint))/CLK_PER_SEC;
 	printf( "Update3 %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
+
+
+
+/*====================== TEST ERROR MEMORY ===============================*/
+//#ifdef TEST_ERROR_MEMORY
+
+	double estimated, curr_error = 0;
+	double exact = 0;
+    std::vector<RT::Point<int,int>> points = {};
+	int xfactor = ceil(double(upper_limits[0])/double(epsilon_1));
+	int yfactor = ceil(double(upper_limits[1])/double(epsilon_1));
+
+
+//	std::cout << "xfactor: " << xfactor << " yfactor: " << yfactor << std::endl; //TODO testing
+	for (int i = 0; i < numItems; i++) {
+		RT::Point<int,int> a(vdata[i % datalen], 0);
+		points.push_back(a);
+	}
+ 
+    RT::RangeTree<int,int> exacttree(points);
+    //cout << "printing exact tree" << endl;
+
+	//exacttree.print(); //TODO:testing
+
+	for (int i = 0; i < numItems; i++) {
+		alg->update(vdata[i % datalen]);
+	}
+
+
+//	cout << "printing counters after update********" << endl; //TODO testing
+//	alg->rtree->printwCounter(); //TODO testing
+
+    for (int i = 0; i < numItems; i++)  {
+		int x1 = 1 + rand() % (epsilon_1 - 2);
+		int diff1 = 1+ rand() % (epsilon_1 - x1);
+		int y1 = 1 + rand() % (epsilon_1 - 2);
+		int diff2 = 1 + rand() % (epsilon_1 - y1);
+
+
+		estimated = alg->rtree->countInSketchRange(f(x1, y1), f(x1 + diff1, y1 + diff2));
+		exact = exacttree.countInRange(f(xfactor*(x1-1), yfactor*(y1-1)), f(xfactor*(x1 + diff1) - 1, yfactor*(y1 + diff2) - 1));
+
+		curr_error = exact - estimated;
+ /*
+		if (curr_error != 0) {
+			cout << "curr_error " << curr_error << " estimated: " << estimated << " exact: " << exact << endl;
+			cout << "query estimated: " << x1 <<" ,"<< x1+diff1 <<" ,"<< y1 <<" ,"<< y1+diff2 << endl;
+			cout << "query exact: " << xfactor*(x1-1) <<" ,"<< xfactor*(x1 + diff1) - 1 <<" ,"<< yfactor*(y1-1) <<" ,"<< yfactor*(y1 + diff2) - 1<< endl;
+
+			estimated = alg->rtree->countInSketchRange(f(x1, y1), f(x1 + diff1, y1 + diff2));
+		}
+		// TODO: testing For debug
+*/
+		curr_error = pow(curr_error, 2);
+		emp_error += curr_error;
+	}
+
+	emp_error = sqrt((emp_error/numItems));
+
+	printf( "./papa %d pairs emp error: %lf [%d eps_1]\n", numItems, emp_error, epsilon_1);
+//#endif
+
 	return 0;
 }
 
@@ -258,6 +324,7 @@ RegionAlg::RegionAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glow
 
 		/* Construct the range tree */
 		rtree = new RT::RangeTree<int,int>(points);
+		//rtree->print(); //TODO: testing
 	} else if (dimensions == 3) {
 		/* Prepare the points to build the range tree */
 		std::vector<RT::Point<int,int>> points = {};
@@ -279,10 +346,11 @@ RegionAlg::RegionAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glow
 
 void RegionAlg::update(vector<int> x)
 {
-	int firstCor = ceil (x[0] / ceil(double(upper_limits[0])/double(eps_1)));
-	int secondCor = ceil (x[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int firstCor = ceil (double(x[0] + 1) / double(ceil(double(upper_limits[0])/double(eps_1))));
+	int secondCor = ceil (double(x[1] + 1) / double (ceil(double(upper_limits[1])/double(eps_1))));
 
 	//TODO: this is only for 2d and the lowers start from 0!
+	//std::cout << "update x: " << x[0] << " , " << x[1] << "   Cord: " << firstCor << " , " << secondCor << endl; //TODO: testing
 	return rtree->updateSketch(new RT::Point<int,int> (f(firstCor,secondCor), 0));
 }
 
