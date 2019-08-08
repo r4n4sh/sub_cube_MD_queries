@@ -216,22 +216,32 @@ int main(int argc, char * argv[]) {
 	printf( "QueryNapaNaive %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);*/
 
 /*====================== TEST ERROR MEMORY ===============================*/
-//#ifdef TEST_ERROR_MEMORY
 
 	double estimated, curr_error = 0;
 	double exact = 0;
     std::vector<RT::Point<int,int>> points = {};
-    
+	int xfactor = ceil(double(upper_limits[0])/double(epsilon_1));
+	int yfactor = ceil(double(upper_limits[1])/double(epsilon_1));
+
+
+//	std::cout << "xfactor: " << xfactor << " yfactor: " << yfactor << std::endl; //TODO testing
 	for (int i = 0; i < numItems; i++) {
 		RT::Point<int,int> a(vdata[i % datalen], 0);
 		points.push_back(a);
 	}
-    RT::RangeTree<int,int> rtree(points);
+ 
+    RT::RangeTree<int,int> exacttree(points);
+    //cout << "printing exact tree" << endl;
 
+	//exacttree.print(); //TODO:testing
 
 	for (int i = 0; i < numItems; i++) {
 		alg->update(vdata[i % datalen]);
 	}
+
+
+//	cout << "printing counters after update********" << endl; //TODO testing
+//	alg->rtree->printwCounter(); //TODO testing
 
     for (int i = 0; i < numItems; i++)  {
 		vector<int> lower;
@@ -250,10 +260,19 @@ int main(int argc, char * argv[]) {
 		upper.push_back(upper1);
 		upper.push_back(upper2);
 
-		estimated = alg->countQueryTrees(lower, upper);
+		estimated = alg->countQueryNaive(lower, upper);
+
 		exact = rtree.countInRange(lower, upper);
 
 		curr_error = exact - estimated;
+
+		if (curr_error != 0) {
+			cout << "curr_error " << curr_error << " estimated: " << estimated << " exact: " << exact << endl;
+			cout << "query estimated and exact: x: " << lower[0] <<" ,"<< upper[0] <<" y:  "<< lower[1] <<" ,"<< upper[1] << endl;
+			estimated = alg->countQueryTrees(lower, upper);
+		}
+		// TODO: testing For debug
+
 		curr_error = pow(curr_error, 2);
 		emp_error += curr_error;
 	}
@@ -261,7 +280,10 @@ int main(int argc, char * argv[]) {
 	emp_error = sqrt((emp_error/numItems));
 
 	printf( "./napa %d pairs emp error: %lf [%d eps_1]\n", numItems, emp_error, epsilon_1);
-//#endif
+
+
+
+
 
 }
 
@@ -287,13 +309,15 @@ NapaAlg::NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerli
 	lower_limits = glowerlimits;
 	eps_1 = epsilon_1; //1\epsilon
 	sample_size = (epsilon_1)*(epsilon_1) * log2(ceil(1/delta));
+	eps_1_tag = epsilon_1 * (2*dimensions+1);
 
 	if (dimensions == 2) {
+		epsilon_1_tag = epsilon_1 * (2*dimensions+1);
 		/* Prepare the points to build the range tree */
 		std::vector<RT::Point<int,int>> points = {};
 
-		for (int i = 1; i <= epsilon_1; i++) {
-			for (int j = 1; j <= epsilon_1; j++) {
+		for (int i = 1; i <= epsilon_1_tag; i++) {
+			for (int j = 1; j <= epsilon_1_tag; j++) {
 				RT::Point<int, int> a(f(i, j), 0);
 				points.push_back(a);
 			}
@@ -303,24 +327,24 @@ NapaAlg::NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerli
 		/* Count number of the samples in each row and col */
 		stream_size = 0;
 
-		samples_row_num = new int[epsilon_1 + 1];
-		samples_col_num = new int[epsilon_1 + 1];
+		samples_row_num = new int[epsilon_1_tag + 1];
+		samples_col_num = new int[epsilon_1_tag + 1];
 		
-		for(int i = 0; i <= epsilon_1; i++) {
+		for(int i = 0; i <= epsilon_1_tag; i++) {
 			samples_row_num[i] = 0;
 			samples_col_num[i] = 0;
 		}
 
 		/* The samples itself */
-		samples_row = new vector<RT::Point<int,int>>[epsilon_1 + 1];
-		samples_col = new vector<RT::Point<int,int>>[epsilon_1 + 1];
+		samples_row = new vector<RT::Point<int,int>>[epsilon_1_tag + 1];
+		samples_col = new vector<RT::Point<int,int>>[epsilon_1_tag + 1];
 
 		/*Array of pointers to trees */
 
-		row_trees = new RT::RangeTree<int,int>*[epsilon_1 + 1];
-		col_trees = new RT::RangeTree<int,int>*[epsilon_1 + 1];
+		row_trees = new RT::RangeTree<int,int>*[epsilon_1_tag + 1];
+		col_trees = new RT::RangeTree<int,int>*[epsilon_1_tag + 1];
 
-		for(int i = 0; i <= epsilon_1; i++) {
+		for(int i = 0; i <= epsilon_1_tag; i++) {
 			row_trees[i] = NULL;
 			col_trees[i] = NULL;
 		}
@@ -349,8 +373,10 @@ NapaAlg::NapaAlg(int dimensions, int epsilon_1, int* gupperlimits, int* glowerli
 
 void NapaAlg::update(vector<int> x)
 {
-	int firstCor = ceil (x[0] / ceil(double(upper_limits[0])/double(eps_1)));
-	int secondCor = ceil (x[1] / ceil(double(upper_limits[1])/double(eps_1)));
+
+	int firstCor = ceil (double(x[0] + 1) / double(ceil(double(upper_limits[0])/double(eps_1_tag))));
+	int secondCor = ceil (double(x[1] + 1) / double (ceil(double(upper_limits[1])/double(eps_1_tag))));
+
 
 
 
@@ -383,8 +409,8 @@ void NapaAlg::update(vector<int> x)
 		   ############################################### */
 
 			std::vector<int> vout = samples_overall[j];
-			int firstCorOut = ceil (vout[0] / ceil(double(upper_limits[0])/double(eps_1)));
-			int secondCorOut = ceil (vout[1] / ceil(double(upper_limits[1])/double(eps_1)));
+			int firstCorOut = ceil (vout[0] / ceil(double(upper_limits[0])/double(eps_1_tag)));
+			int secondCorOut = ceil (vout[1] / ceil(double(upper_limits[1])/double(eps_1_tag)));
 
 			RT::Point<int,int> pointout(vout, 0);
 
@@ -435,11 +461,11 @@ int NapaAlg::countQueryTrees(vector<int>& lower, vector<int>& upper)
 {
 	//TODO deal when lower_limits = 0;
 
-	int firstCorLower = ceil(lower[0] / ceil(double (upper_limits[0])/double(eps_1)));
-	int secondCorLower = ceil(lower[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int firstCorLower = ceil(lower[0] / ceil(double (upper_limits[0])/double(eps_1_tag)));
+	int secondCorLower = ceil(lower[1] / ceil(double(upper_limits[1])/double(eps_1_tag)));
 
-	int firstCorUpper = floor(upper[0] / ceil(double(upper_limits[0])/double(eps_1)));
-	int secondCorUpper = floor(upper[1] / ceil(double(upper_limits[1])/double(eps_1)));
+	int firstCorUpper = floor(upper[0] / ceil(double(upper_limits[0])/double(eps_1_tag)));
+	int secondCorUpper = floor(upper[1] / ceil(double(upper_limits[1])/double(eps_1_tag)));
 
 
 	int result = rtree->countInSketchRange(f(firstCorLower + 1,secondCorLower+1), f(firstCorUpper,secondCorUpper));//TODO: think about papa bounds

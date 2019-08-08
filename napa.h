@@ -16,6 +16,7 @@ private:
 	int* upper_limits;
 	int* lower_limits;
 	int eps_1; //1\epsilon
+	int eps_1_tag;
 	vector<RT::Point<int,int>> *samples_row;
 	vector<RT::Point<int,int>> *samples_col;
 	vector<vector<int>> samples_overall;

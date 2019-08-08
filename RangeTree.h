@@ -47,6 +47,11 @@
 #include <memory>
 #include "countmin.h"
 
+#define SKETCH 1
+
+//#ifdef SKETCH
+//#endif
+
 
 namespace RangeTree {
 
