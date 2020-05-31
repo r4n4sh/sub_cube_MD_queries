@@ -1,0 +1,7 @@
+./NAPATREES 100000 pairs emp error: 84.69064 [4 eps_1]
+./NAPATREES 100000 pairs emp error: 33.87625 [8 eps_1]
+./NAPATREES 100000 pairs emp error: 16.31079 [16 eps_1]
+./NAPATREES 100000 pairs emp error: 8.071899 [32 eps_1]
+./NAPATREES 100000 pairs emp error: 3.886474 [64 eps_1]
+./NAPATREES 100000 pairs emp error: 2.007308 [128 eps_1]
+./NAPATREES 100000 pairs emp error: 0.982359 [256 eps_1]

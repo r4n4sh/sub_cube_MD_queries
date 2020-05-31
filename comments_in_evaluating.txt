@@ -1,0 +1,12 @@
+Things to consider while evaluating:
+
+
+!) in update test, NAPA optimize:			/* Optimize this in update test!! */
+		//	samples_col[firstCorOut].erase(std::remove(samples_col[firstCorOut].begin(), samples_col[firstCorOut].end(), pointout), samples_col[firstCorOut].end());
+		//	samples_row[secondCorOut].erase(std::remove(samples_row[secondCorOut].begin(), samples_row[secondCorOut].end(), pointout), samples_row[secondCorOut].end());
+in O(1), quick workaround in update test comment these lines
+
+
+
+2) in measure perfroamnce, in Range.h use relevantNodes()
+in empError use relevantNodesNew()

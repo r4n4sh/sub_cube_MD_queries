@@ -1,0 +1,14 @@
+./papaF 100000 pairs frequency emp error: 2786.518196 [4 eps_1] 0 success
+./papaF 100000 pairs frequency emp error: 1231.661675 [8 eps_1] 0 success
+./papaF 100000 pairs frequency emp error: 610.244599 [16 eps_1] 0 success
+./papaF 100000 pairs frequency emp error: 84.552286 [32 eps_1] 11657 success
+./papaF 100000 pairs frequency emp error: 9.815449 [64 eps_1] 73868 success
+./papaF 100000 pairs frequency emp error: 9.102018 [128 eps_1] 78671 success
+./papaF 100000 pairs frequency emp error: 9.019979 [256 eps_1] 79545 success
+./papaC 50000 pairs frequency emp error: 0.000000 [4 eps_1] 0 success
+./papaC 50000 pairs frequency emp error: 0.000000 [8 eps_1] 0 success
+./papaC 50000 pairs frequency emp error: 0.000000 [16 eps_1] 0 success
+./papaC 50000 pairs frequency emp error: 0.000000 [32 eps_1] 7742 success
+./papaC 50000 pairs frequency emp error: 0.000000 [64 eps_1] 38358 success
+./papaC 50000 pairs frequency emp error: 0.000000 [128 eps_1] 39802 success
+./papaC 50000 pairs frequency emp error: 0.000000 [256 eps_1] 40208 success

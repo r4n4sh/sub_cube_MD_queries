@@ -1,0 +1,7 @@
+./napa 100000 pairs emp error: 0.981591 [4 eps_1]
+./napa 100000 pairs emp error: 0.983682 [8 eps_1]
+./napa 100000 pairs emp error: 0.996880 [16 eps_1]
+./napa 100000 pairs emp error: 0.982359 [32 eps_1]
+./napa 100000 pairs emp error: 0.982359 [64 eps_1]
+./napa 100000 pairs emp error: 0.982359 [128 eps_1]
+./napa 100000 pairs emp error: 0.982359 [256 eps_1]

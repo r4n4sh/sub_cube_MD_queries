@@ -1,0 +1,210 @@
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 
+CMHUpdate2 32768 pairs took 0.793988s 4 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.782364s 8 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.841247s 16 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.866058s 32 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.906514s 64 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.928686s 128 1/epsilon 265 range 2 dimensions
+CMHUpdate2 32768 pairs took 0.951930s 256 1/epsilon 265 range 2 dimensions
+UpdatePAPA 32768 pairs took 0.030832s 4 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.041276s 8 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.053999s 16 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.065934s 32 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.079859s 64 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.096128s 128 1/epsilon 2 dimensions 
+UpdatePAPA 32768 pairs took 0.115036s 256 1/epsilon 2 dimensions 
+UpdateNapa 32768 pairs took 0.068786s 4 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.101725s 8 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.126470s 16 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.143657s 32 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.165733s 64 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.178322s 128 1/epsilon 256 range 2 dimensions 
+UpdateNapa 32768 pairs took 0.205995s 256 1/epsilon 256 range 2 dimensions 

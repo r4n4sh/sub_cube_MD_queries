@@ -1,0 +1,210 @@
+CMHQuery2 1024 pairs took 0.035316s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035343s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035420s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035328s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035395s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035854s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035409s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035375s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035334s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035658s 4 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035404s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035448s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035794s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035471s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035402s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035448s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035397s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035902s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035473s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035478s 8 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035410s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035579s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035375s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035450s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035818s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035465s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035501s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.036754s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035692s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035881s 16 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035296s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035298s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035323s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.036025s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035234s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035525s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035233s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035397s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035513s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035582s 32 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034886s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034990s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035050s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034955s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035158s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035130s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035378s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.036475s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034947s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035114s 64 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034415s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034415s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034370s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034291s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034468s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034556s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034591s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034377s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034553s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034483s 128 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.035099s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034396s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034360s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034157s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034263s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034020s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034184s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034132s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034337s 256 1/epsilon 64 range 2 dimensions
+CMHQuery2 1024 pairs took 0.034145s 256 1/epsilon 64 range 2 dimensions
+QueryNapa2 200000 pairs took 0.736236s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.724807s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.725125s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.799490s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.726239s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.726612s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.665066s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.677645s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.727572s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.726656s 4 1/epsilon
+QueryNapa2 200000 pairs took 0.704300s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.703899s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.707470s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.706305s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.702682s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.627823s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.703774s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.703759s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.703459s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.711937s 8 1/epsilon
+QueryNapa2 200000 pairs took 0.714330s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.718556s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.714017s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.718774s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.713691s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.722726s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.718212s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.726524s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.717693s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.715501s 16 1/epsilon
+QueryNapa2 200000 pairs took 0.776297s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.773341s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.771553s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.769063s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.773991s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.771815s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.773496s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.773720s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.774996s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.770009s 32 1/epsilon
+QueryNapa2 200000 pairs took 0.817720s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.857460s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.855280s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.854589s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.862560s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.797195s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.860536s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.857219s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.859942s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.854030s 64 1/epsilon
+QueryNapa2 200000 pairs took 0.954959s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.950303s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.965479s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.985791s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.951667s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.951115s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.951029s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.960334s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.955290s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.937344s 128 1/epsilon
+QueryNapa2 200000 pairs took 0.917111s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.915393s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.922451s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.922778s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.927170s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.937885s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.931927s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.917741s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.927437s 256 1/epsilon
+QueryNapa2 200000 pairs took 0.916563s 256 1/epsilon
+Query2 200000 pairs took 0.316936s 4 1/epsilon
+Query2 200000 pairs took 0.329990s 4 1/epsilon
+Query2 200000 pairs took 0.329851s 4 1/epsilon
+Query2 200000 pairs took 0.328663s 4 1/epsilon
+Query2 200000 pairs took 0.330341s 4 1/epsilon
+Query2 200000 pairs took 0.328427s 4 1/epsilon
+Query2 200000 pairs took 0.330740s 4 1/epsilon
+Query2 200000 pairs took 0.329277s 4 1/epsilon
+Query2 200000 pairs took 0.310847s 4 1/epsilon
+Query2 200000 pairs took 0.317990s 4 1/epsilon
+Query2 200000 pairs took 0.388946s 8 1/epsilon
+Query2 200000 pairs took 0.391638s 8 1/epsilon
+Query2 200000 pairs took 0.393552s 8 1/epsilon
+Query2 200000 pairs took 0.389242s 8 1/epsilon
+Query2 200000 pairs took 0.390058s 8 1/epsilon
+Query2 200000 pairs took 0.389747s 8 1/epsilon
+Query2 200000 pairs took 0.390505s 8 1/epsilon
+Query2 200000 pairs took 0.388983s 8 1/epsilon
+Query2 200000 pairs took 0.370155s 8 1/epsilon
+Query2 200000 pairs took 0.396052s 8 1/epsilon
+Query2 200000 pairs took 0.445337s 16 1/epsilon
+Query2 200000 pairs took 0.447711s 16 1/epsilon
+Query2 200000 pairs took 0.445734s 16 1/epsilon
+Query2 200000 pairs took 0.444469s 16 1/epsilon
+Query2 200000 pairs took 0.456061s 16 1/epsilon
+Query2 200000 pairs took 0.445820s 16 1/epsilon
+Query2 200000 pairs took 0.445569s 16 1/epsilon
+Query2 200000 pairs took 0.447972s 16 1/epsilon
+Query2 200000 pairs took 0.436843s 16 1/epsilon
+Query2 200000 pairs took 0.445361s 16 1/epsilon
+Query2 200000 pairs took 0.511110s 32 1/epsilon
+Query2 200000 pairs took 0.510173s 32 1/epsilon
+Query2 200000 pairs took 0.510147s 32 1/epsilon
+Query2 200000 pairs took 0.509528s 32 1/epsilon
+Query2 200000 pairs took 0.512740s 32 1/epsilon
+Query2 200000 pairs took 0.509809s 32 1/epsilon
+Query2 200000 pairs took 0.493814s 32 1/epsilon
+Query2 200000 pairs took 0.514643s 32 1/epsilon
+Query2 200000 pairs took 0.511525s 32 1/epsilon
+Query2 200000 pairs took 0.515044s 32 1/epsilon
+Query2 200000 pairs took 0.599445s 64 1/epsilon
+Query2 200000 pairs took 0.606194s 64 1/epsilon
+Query2 200000 pairs took 0.605843s 64 1/epsilon
+Query2 200000 pairs took 0.599720s 64 1/epsilon
+Query2 200000 pairs took 0.607071s 64 1/epsilon
+Query2 200000 pairs took 0.604793s 64 1/epsilon
+Query2 200000 pairs took 0.605500s 64 1/epsilon
+Query2 200000 pairs took 0.603441s 64 1/epsilon
+Query2 200000 pairs took 0.605912s 64 1/epsilon
+Query2 200000 pairs took 0.605848s 64 1/epsilon
+Query2 200000 pairs took 0.720915s 128 1/epsilon
+Query2 200000 pairs took 0.735211s 128 1/epsilon
+Query2 200000 pairs took 0.711477s 128 1/epsilon
+Query2 200000 pairs took 0.713947s 128 1/epsilon
+Query2 200000 pairs took 0.726331s 128 1/epsilon
+Query2 200000 pairs took 0.720196s 128 1/epsilon
+Query2 200000 pairs took 0.706598s 128 1/epsilon
+Query2 200000 pairs took 0.713870s 128 1/epsilon
+Query2 200000 pairs took 0.721390s 128 1/epsilon
+Query2 200000 pairs took 0.717337s 128 1/epsilon
+Query2 200000 pairs took 0.866427s 256 1/epsilon
+Query2 200000 pairs took 0.860687s 256 1/epsilon
+Query2 200000 pairs took 0.862252s 256 1/epsilon
+Query2 200000 pairs took 0.876224s 256 1/epsilon
+Query2 200000 pairs took 0.853608s 256 1/epsilon
+Query2 200000 pairs took 0.864970s 256 1/epsilon
+Query2 200000 pairs took 0.857630s 256 1/epsilon
+Query2 200000 pairs took 0.861619s 256 1/epsilon
+Query2 200000 pairs took 0.862894s 256 1/epsilon
+Query2 200000 pairs took 0.855250s 256 1/epsilon

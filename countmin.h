@@ -5,6 +5,7 @@
 
 #ifndef COUNTMIN_h
 #define COUNTMIN_h
+#include <vector>
 
 #include "prng.h"
 
@@ -66,8 +67,10 @@ extern void CMH_Destroy(CMH_type *);
 extern int CMH_Size(CMH_type *);
 
 extern void CMH_Update(CMH_type *, unsigned int, int);
+extern void CMH_Update2(CMH_type * cmh, unsigned int item1, unsigned int item2, int diff);
 extern int * CMH_FindHH(CMH_type *, int);
 extern int CMH_Rangesum(CMH_type *, int, int);
+extern int CMH_Rangesum2d(CMH_type * cmh, int start, int end, int start2, int end2);
 
 extern int CMH_FindRange(CMH_type * cmh, int);
 extern int CMH_Quantile(CMH_type *cmh,float);

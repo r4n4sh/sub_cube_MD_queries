@@ -1,0 +1,7 @@
+./papa 10000 pairs frequency emp error: 228.818457 [4 eps_1] 0 success
+./papa 10000 pairs frequency emp error: 80.369891 [8 eps_1] 0 success
+./papa 10000 pairs frequency emp error: 16.414262 [16 eps_1] 173 success
+./papa 10000 pairs frequency emp error: 1.268109 [32 eps_1] 7704 success
+./papa 10000 pairs frequency emp error: 1.153083 [64 eps_1] 8459 success
+./papa 10000 pairs frequency emp error: 1.086278 [128 eps_1] 8555 success
+./papa 10000 pairs frequency emp error: 1.006578 [256 eps_1] 8633 success

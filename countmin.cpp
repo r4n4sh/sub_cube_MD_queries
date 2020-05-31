@@ -22,6 +22,8 @@ to Creative Commons, 559 Nathan Abbott Way, Stanford, California
 #include <cstring>
 #include "prng.h"
 #include "countmin.h"
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/classification.hpp>
 
 #ifndef CLK_PER_SEC
 #ifdef CLOCKS_PER_SEC
@@ -34,12 +36,11 @@ to Creative Commons, 559 Nathan Abbott Way, Stanford, California
 
 
 double eps;	               /* 1+epsilon = approximation factor */
-double delta;                  /* probability of failure */
-
+//double delta = 0.0000001;
 //int bits=32;
 using namespace std;
 
-
+//int d = 1;
 
 /*
 int main(int argc, char * argv[]) {
@@ -48,6 +49,180 @@ int main(int argc, char * argv[]) {
   return 1;
 }
 */
+
+/*
+int main(int argc, char * argv[]) {
+  int counters = 100;
+  int threshold = 1000;
+  int numItems = 344000;
+  int k = 1;
+  double time;
+  int i;
+  int w, x, y, z;
+  clock_t begint, endt;
+  struct timeb begintb, endtb;
+  unsigned long * data;
+  FILE * fp = NULL;
+  int M = 1;
+  float gamma = 4;
+  int epsilon_1 = 4;
+  double dPhi = 0.001;
+  uint32_t u32Depth = 4;
+  uint32_t u32Width = 2.0 / dPhi;
+  int percentage = 1;
+//  ifstream myfile ("dfacebookdataset2d.txt");
+//  ifstream myfile ("datasetzip.txt");
+  ifstream myfile ("cmdataset.txt");
+
+  for (int i = 1; i < argc; i++)
+  {
+    if (i + 1 != argc)
+    {
+      if (strcmp(argv[i], "-n") == 0) // This is your parameter name
+      {
+        numItems = atoi(argv[i+1]);
+        i++;    // Move to the next flag
+      }
+
+      if (strcmp(argv[i], "-f") == 0)
+      {
+        ifstream myfile (argv[i+1]);
+        i++;
+      }
+      if (strcmp(argv[i], "-e") == 0)
+      {
+        epsilon_1 = atoi(argv[i+1]);
+        i++;
+      }
+     // if (strcmp(argv[i], "-d") == 0)
+     // {
+     //   d = atoi(argv[i+1]);
+     //   i++;
+     // }
+
+    }
+  }
+
+
+  u32Depth = log2(ceil(1/delta));
+  u32Width = ceil(4*epsilon_1);
+
+
+  int limit = 6000;
+  int gran = ceil(log2(ceil(limit/float(epsilon_1))));
+  int llimit = ceil(log2(limit));
+
+  CMH_type* cm = CMH_Init(u32Width, u32Depth, llimit, 1);
+
+  string line;
+  int datalen = numItems; //TODO testing
+
+  vector<int> vdata[datalen];
+
+  std::vector<std::string> tokens;
+
+  if (myfile.is_open()) {
+    int i = 0;
+    while (getline (myfile,line) && i < datalen)
+    {
+        split(tokens, line, boost::is_any_of(" ")); // here it is
+      for(auto& s: tokens) {
+        vdata[i].push_back(stoi(s));
+      }
+      i++;
+    }
+  }
+
+
+  //TEST_UPDATE
+
+  begint = clock();
+  ftime(&begintb);
+
+  for (i = 1; i <= numItems; i++) {
+    CMH_Update(cm, vdata[i % numItems][0], 1);
+  }
+
+  endt = clock();
+  ftime(&endtb);
+
+  time = ((double)(endt - begint)) / CLK_PER_SEC;
+  printf("CMHUpdate %d pairs took %lfs %d 1/epsilon %d llimit\n", numItems, time, epsilon_1, llimit);
+
+
+  // Test Query times
+
+  begint = clock();
+  ftime(&begintb);
+  for (i = 1; i <= numItems; i++) {
+    //int start = 1 + rand() % ( int(pow(2, 32))/2 -1 );
+    int start = 1;
+    int end = int(pow(2, 32))/2 + start+ rand() % (int(pow(2, 32)) - start);
+
+    //printf("CMHQuery start: %d end: %d\n", start, end);
+
+
+    CMH_Rangesum(cm, start, end);
+  }
+
+  endt = clock();
+  ftime(&endtb);
+
+  time = ((double)(endt - begint)) / CLK_PER_SEC;
+
+  printf("CMHQuery %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+
+
+//  Testing extension to 2D 
+
+  //TEST_UPDATE in 2d
+  
+  begint = clock();
+  ftime(&begintb);
+
+  for (i = 1; i <= numItems; i++) {
+    //CMH_Update2(cm, vdata[i % numItems][0], vdata[i % numItems][1], 1);
+    CMH_Update(cm, vdata[i % numItems][0], 1);
+  }
+
+  endt = clock();
+  ftime(&endtb);
+
+  time = ((double)(endt - begint)) / CLK_PER_SEC;
+  printf("CMHUpdate2 %d pairs took %lfs %d 1/epsilon %d llimit\n", numItems, time, epsilon_1, llimit);
+
+
+  // Test Query times
+
+  begint = clock();
+  ftime(&begintb);
+  for (i = 1; i <= numItems; i++) {
+    int start = 1;
+    int end = int(pow(2, 32))/2 + start+ rand() % (int(pow(2, 32)) - start);
+
+    int start2 = 1;
+    int end2 = int(pow(2, 32))/2 + start+ rand() % (int(pow(2, 32)) - start);
+
+
+    CMH_Rangesum2d(cm, start, end, start2, end2);
+  }
+
+  endt = clock();
+  ftime(&endtb);
+
+  time = ((double)(endt - begint)) / CLK_PER_SEC;
+
+  printf("CMHQuery2 %d pairs took %lfs %d 1/epsilon\n", numItems, time, epsilon_1);
+
+/************************************************************************
+
+  CMH_Destroy(cm);
+  return 0;
+}
+*/
+
+
+
 /************************************************************************/
 /* Routines to support Count-Min sketches                               */
 /************************************************************************/
@@ -468,7 +643,12 @@ CMH_type * CMH_Init(int width, int depth, int U, int gran)
 	         cmh->freelim=j;
       //find the level up to which it is cheaper to keep exact counts
       cmh->freelim=cmh->levels-cmh->freelim;
-      
+
+      /*if (d = 2) {
+        cmh->freelim = 5;
+      }*/
+      //cout << "freelim: " << cmh->freelim << " dimension of each CMS: " <<  cmh->depth << " X " << cmh->width << endl;
+      //cout << "free limit: " << cmh->freelim << " levels: " << cmh->levels << endl;
       cmh->counts=(int **) calloc(sizeof(int *), 1+cmh->levels);
       cmh->hasha=(unsigned int **)calloc(sizeof(unsigned int *),1+cmh->levels);
       cmh->hashb=(unsigned int **)calloc(sizeof(unsigned int *),1+cmh->levels);
@@ -552,6 +732,29 @@ void CMH_Update(CMH_type * cmh, unsigned int item, int diff)
     }
 }
 
+
+//int shift = 65536;
+int shift = 256;
+int vec_pack(int number1, int number2){
+    return number1 + number2 * shift;
+}
+
+int getFirstUnpack(int number)
+{
+    return (number % shift);
+}
+
+int getSecondUnpack(int number)
+{
+    return int(number / shift);
+}
+
+void CMH_Update2(CMH_type * cmh, unsigned int item1, unsigned int item2, int diff)
+{ // update with a 2d new value
+
+  return CMH_Update(cmh, vec_pack(item1, item2), diff);
+}
+
 int CMH_Size(CMH_type * cmh)
 { // return the size used in bytes
   int counts, hashes, admin,i;
@@ -593,6 +796,39 @@ int CMH_count(CMH_type * cmh, int depth, int item)
 		   cmh->counts[depth][(hash31(cmh->hasha[depth][j],
 					      cmh->hashb[depth][j],item) 
 				       % cmh->width) + offset]);
+    }
+  return(estimate);
+}
+
+
+int CMH_count2d(CMH_type * cmh, int depth, int item, std::vector<int >& nodes)
+{
+  // return an estimate of item at level depth
+
+  int j;
+  int offset;
+  int estimate;
+
+  if (depth>=cmh->levels) return(cmh->count);
+  if (depth>=cmh->freelim)
+    { // use an exact count if there is one
+      nodes.push_back(item);
+      return(cmh->counts[depth][item]);
+    }
+  // else, use the appropriate sketch to make an estimate
+  offset=0;
+  nodes.push_back((hash31(cmh->hasha[depth][0], cmh->hashb[depth][0],item) % cmh->width) + offset);
+  estimate=cmh->counts[depth][(hash31(cmh->hasha[depth][0],
+              cmh->hashb[depth][0],item) 
+             % cmh->width) + offset];
+  for (j=1;j<cmh->depth;j++)
+    {
+      offset+=cmh->width;
+      nodes.push_back((hash31(cmh->hasha[depth][j], cmh->hashb[depth][j],item) % cmh->width) + offset);
+      estimate=mymin(estimate,
+       cmh->counts[depth][(hash31(cmh->hasha[depth][j],
+                cmh->hashb[depth][j],item) 
+               % cmh->width) + offset]);
     }
   return(estimate);
 }
@@ -661,32 +897,94 @@ int CMH_Rangesum(CMH_type * cmh, int start, int end)
     {
       if (start==end) break;
       if ((end-start+1)<(1<<cmh->gran))
-	{ // at the highest level, avoid overcounting	
-	  for (i=start;i<end;i++)
-	    result+=CMH_count(cmh,depth,i);
-	  break;
-	}
+    	{ // at the highest level, avoid overcounting	
+    	  for (i=start;i<end;i++)
+    	    result+=CMH_count(cmh,depth,i);
+    	  break;
+    	}
       else
-	{  // figure out what needs to be done at each end
-	  leftend=(((start>>cmh->gran)+1)<<cmh->gran) - start;
-	  rightend=(end)-((end>>cmh->gran)<<cmh->gran);
-	  if ((leftend>0) && (start<end))
-	    for (i=0;i<leftend;i++)
-	      {
-		result+=CMH_count(cmh,depth,start+i);
-	      }
-	  if ((rightend>0) && (start<end))
-	    for (i=0;i<rightend;i++)
-	      {
-		result+=CMH_count(cmh,depth,end-i-1);
-	      }
-	  start=start>>cmh->gran;
-	  if (leftend>0) start++;
-	  end=end>>cmh->gran;
-	}
+    	{  // figure out what needs to be done at each end
+    	  leftend=(((start>>cmh->gran)+1)<<cmh->gran) - start;
+    	  rightend=(end)-((end>>cmh->gran)<<cmh->gran);
+    	  
+        if ((leftend>0) && (start<end))
+    	    for (i=0;i<leftend;i++)
+    	    {
+    		    result+=CMH_count(cmh,depth,start+i);
+    	    }
+    	  
+        if ((rightend>0) && (start<end))
+    	    for (i=0;i<rightend;i++)
+    	    {
+    		    result+=CMH_count(cmh,depth,end-i-1);
+    	    }
+    	  
+        start=start>>cmh->gran;
+    	  if (leftend>0) start++;
+    	  end=end>>cmh->gran;
+    	}
     }
   return result;
 }
+
+
+int CMH_Rangesum2d(CMH_type * cmh, int start, int end, int start2, int end2)
+{
+  // compute a range sum: 
+  // start at bottom level
+  // compute any estimates needed at each level
+  // work upwards
+
+  int leftend,rightend,i,depth, result, topend;
+  std::vector<int> nodes;
+  topend=1<<cmh->U;
+  end=mymin(topend,end);
+  if ((end>topend) && (start==0))
+    return cmh->count;
+
+  end+=1; // adjust for end effects
+  result=0;
+  for (depth=0;depth<=cmh->levels;depth++)
+    {
+      if (start==end) break;
+      if ((end-start+1)<(1<<cmh->gran))
+      { // at the highest level, avoid overcounting 
+        for (i=start;i<end;i++)
+          result+=CMH_count2d(cmh,depth,i, nodes);
+        break;
+      }
+      else
+      {  // figure out what needs to be done at each end
+        leftend=(((start>>cmh->gran)+1)<<cmh->gran) - start;
+        rightend=(end)-((end>>cmh->gran)<<cmh->gran);
+        
+        if ((leftend>0) && (start<end))
+          for (i=0;i<leftend;i++)
+          {
+            result+=CMH_count2d(cmh,depth,start+i, nodes);
+          }
+        
+        if ((rightend>0) && (start<end))
+          for (i=0;i<rightend;i++)
+          {
+            result+=CMH_count2d(cmh,depth,end-i-1, nodes);
+          }
+        
+        start=start>>cmh->gran;
+        if (leftend>0) start++;
+        end=end>>cmh->gran;
+      }
+    }
+
+  /*Go over all the items in range 1 and check if they match range 2*/
+
+  for (int i = 0; i < nodes.size(); i++) {
+    if (getSecondUnpack(nodes[i]) >= start2 && getSecondUnpack(nodes[i]) <= end2)
+      --result;
+  }
+  return result;
+}
+
 
 int CMH_FindRange(CMH_type * cmh, int sum)
 {

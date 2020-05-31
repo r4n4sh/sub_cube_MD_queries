@@ -8,6 +8,12 @@
 using namespace std;
 namespace RT = RangeTree;
 
+inline bool inRange(std::vector<int> lower, std::vector<int> upper, std::vector<int> x)
+{
+	if (x[0] >= lower[0] && x[0] <= upper[0] && x[1] >= lower[1] && x[1] <= upper[1])
+		return true;
+	return false;
+}
 
 class NapaAlg {
 
@@ -36,8 +42,12 @@ public:
 	int countQueryTrees(vector<int>& lower, vector<int>& upper);
 	int countQueryNaive(vector<int>& lower, vector<int>& upper);
 	void update3(vector<int> x);
+	void update1(vector<int> x);
 	int countQuery3(vector<int>& lower, vector<int>& upper);
+	int countQueryNaive1(vector<int>& lower, vector<int>& upper);
+	int countQueryTrees1(vector<int>& lower, vector<int>& upper);
 	std::vector<int> fromCorToBlock(vector<int> cor);
+	int countQueryTreesFrequency(vector<int>& lower, vector<int>& upper, std::vector<int> x);
 };
 
 

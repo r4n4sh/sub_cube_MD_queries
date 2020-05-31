@@ -1,0 +1,6 @@
+#compile papa algorithm
+g++ -g -std=c++11 -o out  regionalg.cpp countmin.cpp prng.cc rand48.cc
+
+#compile napa algorithm
+
+g++ -g -std=c++11 -o out  napa.cpp countmin.cpp prng.cc rand48.cc

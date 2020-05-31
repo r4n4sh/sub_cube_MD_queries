@@ -1,0 +1,14 @@
+./out -e 4 -f dataset.txt -n 344000 -d 2
+QueryNapaNaive 344000 pairs took 183.906619s 4 1/epsilon
+
+./out -e 8 -f dataset.txt -n 344000 -d 2
+QueryNapaNaive 344000 pairs took 248.965412s 8 1/epsilon
+
+./out -e 16 -f dataset.txt -n 344000 -d 2
+QueryNapaNaive 344000 pairs took 237.527635s 16 1/epsilon
+
+./out -e 32 -f dataset.txt -n 344000 -d 2
+QueryNapaNaive 344000 pairs took 263.895912s 32 1/epsilon
+
+./out -e 64 -f dataset.txt -n 344000 -d 2
+QueryNapaNaive 344000 pairs took 1.048635s 64 1/epsilon

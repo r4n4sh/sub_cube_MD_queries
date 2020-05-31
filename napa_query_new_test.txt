@@ -1,0 +1,7 @@
+QueryNapa 344000 pairs took 7.490748s 4 1/epsilon
+QueryNapa 344000 pairs took 24.682815s 8 1/epsilon
+QueryNapa 344000 pairs took 97.452901s 16 1/epsilon
+QueryNapa 344000 pairs took 291.173936s 32 1/epsilon
+QueryNapa 344000 pairs took 1440.207765s 64 1/epsilon
+QueryNapa 344000 pairs took 3759.387726s 128 1/epsilon
+QueryNapa 344000 pairs took 8005.813437s 256 1/epsilon

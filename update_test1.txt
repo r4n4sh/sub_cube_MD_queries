@@ -1,0 +1,7 @@
+Update 33554432 pairs took 35.520931s 4 1/epsilon
+Update 33554432 pairs took 43.836837s 8 1/epsilon
+Update 33554432 pairs took 52.026276s 16 1/epsilon
+Update 33554432 pairs took 60.066283s 32 1/epsilon
+Update 33554432 pairs took 65.466437s 64 1/epsilon
+Update 33554432 pairs took 62.237822s 128 1/epsilon
+Update 33554432 pairs took 68.655755s 256 1/epsilon

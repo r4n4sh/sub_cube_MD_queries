@@ -1,0 +1,7 @@
+./papa 200000 pairs emp error: 102588.279529 [4 eps_1]
+./papa 200000 pairs emp error: 50533.064452 [8 eps_1]
+./papa 200000 pairs emp error: 1897893.144303 [16 eps_1]
+./papa 200000 pairs emp error: 26369792.732478 [32 eps_1]
+./papa 200000 pairs emp error: 28160451.051446 [64 eps_1]
+./papa 200000 pairs emp error: 27676072.980418 [128 eps_1]
+./papa 200000 pairs emp error: 16509756.010201 [256 eps_1]

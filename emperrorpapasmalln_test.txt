@@ -1,0 +1,7 @@
+./papa 100 pairs emp error: 0.000000 [4 eps_1]
+./papa 100 pairs emp error: 0.000000 [8 eps_1]
+./papa 100 pairs emp error: 0.000000 [16 eps_1]
+./papa 100 pairs emp error: 0.000000 [32 eps_1]
+./papa 100 pairs emp error: 0.000000 [64 eps_1]
+./papa 100 pairs emp error: 3.162278 [128 eps_1]
+./papa 100 pairs emp error: 0.000000 [256 eps_1]

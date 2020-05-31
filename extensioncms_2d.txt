@@ -1,0 +1,2 @@
+CMHUpdate2 344000 pairs took 0.815282s 4 1/epsilon 13 llimit
+CMHQuery2 344000 pairs took 2.051904s 4 1/epsilon

@@ -47,10 +47,8 @@
 #include <memory>
 #include "countmin.h"
 
-#define SKETCH 1
+//#define SKETCH 1
 
-//#ifdef SKETCH
-//#endif
 
 
 namespace RangeTree {
@@ -526,7 +524,9 @@ namespace RangeTree {
         std::shared_ptr<RangeTreeNode<T,S> > left; /**< Contains points <= the comparison point **/
         std::shared_ptr<RangeTreeNode<T,S> > right; /**< Contains points > the comparison point **/
         std::shared_ptr<RangeTreeNode<T,S> > treeOnNextDim; /**< Tree on the next dimension **/
-        //CM_type* sketch;
+#ifdef SKETCH
+        CM_type* sketch;
+#endif
         int counter;
         Point<T,S>* point; /**< The comparison point **/
         bool isLeaf; /**< Whether or not the point is a leaf **/
@@ -557,7 +557,13 @@ namespace RangeTree {
                       bool onRightEdge = false): pointOrdering(spm.getCurrentDim()) {
             point = spm.getMidPoint();
             counter = 0;
-
+#ifdef SKETCH
+            double delta = 0.0001;               /* probability of failure 0.01% */
+            int epsilon_1 = 4; //TODO: change these magic number to input
+            int u32Depth = log2(ceil(1/delta));
+            int u32Width = ceil(4*epsilon_1);
+            sketch = CM_Init(u32Width, u32Depth, 32);
+#endif
             if (spm.numUniquePoints() == 1) {
                 isLeaf = true;
                 pointCountSum = point->count();
@@ -581,12 +587,6 @@ namespace RangeTree {
 /*#######################################################################################################*/
                     /* NEW addition to support regionalg*/
 
-                    double delta = 0.0001;               /* probability of failure 0.01% */
-                    int epsilon_1 = 4; //TODO: change these magic number to input
-                    int u32Depth = log2(ceil(1/delta));
-                    int u32Width = ceil(4*epsilon_1);
-
-                    //sketch = CM_Init(u32Width, u32Depth, 32);
                     counter = 0;
 /*#######################################################################################################*/
 
@@ -742,7 +742,10 @@ namespace RangeTree {
         }
 
         void updateCounter() {
+#ifndef SKETCH
+
             ++counter;
+#endif
         }
 
         /**
@@ -873,11 +876,26 @@ namespace RangeTree {
             }
 
             int dim = point->dim();
+
+            if (dim == 1) {
+                int sum = 0;
+                std::vector<RangeTreeNode<T, S>* > nodes;
+                relevantNodesNew(lower, upper, nodes);
+                //relevantNodes(lower, upper, nodes);
+
+                for (int i = 0; i < nodes.size(); i++) {
+                    sum += nodes[i]->counter;
+                }
+
+                return sum;
+            }
+            
             if (compareInd + 2 == dim) {
 
                 int sum = 0;
                 std::vector<RangeTreeNode<T, S>* > nodes;
                 relevantNodesNew(lower, upper, nodes);
+                //relevantNodes(lower, upper, nodes);
 
                 for (int i = 0; i < nodes.size(); i++) {
                     sum += nodes[i]->counter;
@@ -931,6 +949,99 @@ namespace RangeTree {
 
 /*################################################################################################################################*/
 
+
+/*################################################################################################################*/
+#ifdef SKETCH
+
+        /**
+        * frequency of x the number of points at leaves of tree rooted at the current node that are within the given bounds.
+        *
+        * @param lower see the pointInRange(...) function.
+        * @param upper
+        * @return the count.
+        */
+        int frequencyInSketchRange(const std::vector<T>& lower,
+                         const std::vector<T>& upper, std::vector<int> x) {
+
+            std::vector<Point<T,S> > pointsToReturn = {};
+            int sum = 0;
+            if (isLeaf) {
+                if (pointInRange(*point, lower, upper)) {
+                    pointsToReturn.push_back(*point);
+
+                }
+                return sum;
+            }
+            int compareInd = pointOrdering.getCompareStartIndex();
+
+            if ((*point)[compareInd] > upper[compareInd]) {
+                return left->frequencyInSketchRange(lower, upper, x);
+            }
+            if ((*point)[compareInd] < lower[compareInd]) {
+                return right->frequencyInSketchRange(lower, upper, x);
+            }
+
+            int dim = point->dim();
+            if (compareInd + 2 == dim) {
+
+                int sum = 0;
+                std::vector<RangeTreeNode<T, S>* > nodes;
+                relevantNodesNew(lower, upper, nodes);
+
+                for (int i = 0; i < nodes.size(); i++) {
+                    sum += CM_PointEst(nodes[i]->sketch, vectorToInt(x));
+                }
+
+                return sum;
+
+                //return queryRelevantNodeSketch(lower, upper);
+            } else {
+                std::vector<std::shared_ptr<RangeTreeNode<T, S> > > canonicalNodes = {};
+
+                if (left->isLeaf) {
+                    canonicalNodes.push_back(left);
+                } else {
+                    left->leftCanonicalNodes(lower, canonicalNodes);
+                }
+
+                if (right->isLeaf) {
+                    canonicalNodes.push_back(right);
+                } else {
+                    right->rightCanonicalNodes(upper, canonicalNodes);
+                }
+
+                for (int i = 0; i < canonicalNodes.size(); i++) {
+                    std::shared_ptr<RangeTreeNode<T, S> > node = canonicalNodes[i];
+                    if (node->isLeaf) {
+                        if (pointInRange(*(node->point), lower, upper)) {
+                            pointsToReturn.push_back(*(node->point));
+                            //sum += CM_PointEst(qpoint->sketch, vectorToInt((node->point)->asVector()));
+
+                        }
+                    } else if (compareInd + 1 == point->dim()) {
+                        auto allPointsAtNode = node->getAllPoints();
+                        pointsToReturn.insert(pointsToReturn.end(), allPointsAtNode.begin(), allPointsAtNode.end());
+
+                    } else {
+                        auto allPointsAtNode = node->treeOnNextDim->frequencyInSketchRange(lower, upper, x);
+                      //  pointsToReturn.insert(pointsToReturn.end(), allPointsAtNode.begin(), allPointsAtNode.end());
+                    }
+                }
+
+
+                //iterate over pointsToReturn and summrize the sketches
+                return sum;
+
+                //return pointsToReturn;
+            }
+
+        }
+#endif
+
+/*################################################################################################################################*/
+
+
+
 /*
 
         void queryRelevantNodeSketch(const std::vector<T>& lower,
@@ -980,12 +1091,16 @@ namespace RangeTree {
             int dim = gpoint->dim();
             int compareInd = pointOrdering.getCompareStartIndex();
 
+            if (dim == 1) {
+                updateCounter();
+                return;
+            }
+
             while (compareInd + 2 != dim && !isLeaf) {
                 treeOnNextDim->updatePointSketch(gpoint);
                 return;
             }
 
-            //CM_Update(sketch, vectorToInt(gpoint->asVector()), 1);
             updateCounter();
         }
 
@@ -1029,6 +1144,47 @@ namespace RangeTree {
             }
         }
 
+
+
+#ifdef SKETCH
+        void updatePointSketchfrequency(Point<T,S>* gpoint, std::vector<int> x) {
+            int dim = gpoint->dim();
+            int compareInd = pointOrdering.getCompareStartIndex();
+
+            if (dim == 1) {
+                CM_Update(sketch, vectorToInt(x), 1);
+                return;
+            }
+
+            while (compareInd + 2 != dim && !isLeaf) {
+                treeOnNextDim->updatePointSketch(gpoint);
+                return;
+            }
+
+            CM_Update(sketch, vectorToInt(x), 1);
+        }
+
+
+        void updateSketchfrequency(Point<T,S>* gpoint, std::vector<int> x) {
+
+            int compareInd = pointOrdering.getCompareStartIndex();
+
+            if (*gpoint == *point) {
+                updatePointSketchfrequency(point, x);
+                return;
+            }
+
+            if (isLeaf) {
+                return;
+            }
+
+            if (gpoint->smallerEqualPoint(*point, compareInd)) {
+                return left->updateSketchfrequency(gpoint, x);
+            } else {
+                return right->updateSketchfrequency(gpoint, x);
+            }
+        }
+#endif
 
 /*################################################################################################################################*/
 
@@ -1212,7 +1368,15 @@ namespace RangeTree {
 
         int relevantNodes(const std::vector<T>& lower,
                           const std::vector<T>& upper, std::vector<RangeTreeNode<T,S>* >& nodes) {
-            int compareInd = point->dim() - 2;
+
+            int compareInd;
+
+            if (point->dim() == 1) {
+                compareInd = 0;
+            } else {
+                compareInd = point->dim() - 2;
+            }
+
             int sum = 0;
 
             if (pointInRange(*point, lower, upper)) {
@@ -1292,6 +1456,8 @@ namespace RangeTree {
                 }
                 return right->relevantNodesNew(lower, upper, nodes);
             }
+
+            return sum;
 
         }
 
@@ -1594,13 +1760,26 @@ namespace RangeTree {
         }
 
 
+#ifdef SKETCH
+        int frequencyInSketchRange(const std::vector<T>& lower,
+                         const std::vector<T>& upper, std::vector<int> x) const {
+
+            if (lower.size() != upper.size()) {
+                throw std::logic_error("upper and lower in countInRange must have the same length.");
+            }
+            return root->frequencyInSketchRange(lower, upper, x);
+        }
+#endif
         void updateSketch(Point<T,S>* gpoint) {
             //return root->updateSketch(gpoint);
             return root->updateSketchNew(gpoint);
         }
 
-
-
+#ifdef SKETCH
+        void updateSketchfrequency(Point<T,S>* gpoint, std::vector<int> x) {
+            return root->updateSketchfrequency(gpoint, x);
+        }
+#endif
         /*
                 void addPoint(RangeTreeNode<T,S> root, const Point<T,S>& point) const {
                   if (root == null) {

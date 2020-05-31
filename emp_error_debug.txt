@@ -1,0 +1,21 @@
+./papa 25000 pairs emp error: 0.000000 [4 eps_1]
+./papa 25000 pairs emp error: 0.000000 [8 eps_1]
+./papa 25000 pairs emp error: 0.000000 [16 eps_1]
+./papa 25000 pairs emp error: 0.000000 [32 eps_1]
+./papa 25000 pairs emp error: 0.000000 [64 eps_1]
+./papa 25000 pairs emp error: 0.000000 [128 eps_1]
+./papa 25000 pairs emp error: 0.000000 [256 eps_1]
+./napa 25000 pairs emp error: 2268.793871 [4 eps_1]
+./napa 25000 pairs emp error: 2486.311769 [8 eps_1]
+./napa 25000 pairs emp error: 2659.849931 [16 eps_1]
+./napa 25000 pairs emp error: 2761.729521 [32 eps_1]
+./napa 25000 pairs emp error: 2803.682012 [64 eps_1]
+./napa 25000 pairs emp error: 2803.682012 [128 eps_1]
+./napa 25000 pairs emp error: 2803.682012 [256 eps_1]
+./mdsketch 25000 pairs emp error: 122939.583050 4 1/epsilon 265 range 2 dimensions
+./mdsketch 25000 pairs emp error: 57802.888805 8 1/epsilon 265 range 2 dimensions
+./mdsketch 25000 pairs emp error: 26599.111374 16 1/epsilon 265 range 2 dimensions
+./mdsketch 25000 pairs emp error: 12395.954070 32 1/epsilon 265 range 2 dimensions
+./mdsketch 25000 pairs emp error: 6644.834249 64 1/epsilon 265 range 2 dimensions
+./mdsketch 25000 pairs emp error: 4745.568980 128 1/epsilon 265 range 2 dimensions
+./mdsketch 25000 pairs emp error: 4214.921806 256 1/epsilon 265 range 2 dimensions

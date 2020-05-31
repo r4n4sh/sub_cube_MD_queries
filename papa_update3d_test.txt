@@ -1,0 +1,5 @@
+Update3 344000 pairs took 0.567945s 4 1/epsilon
+Update3 344000 pairs took 0.842272s 8 1/epsilon
+Update3 344000 pairs took 1.160711s 16 1/epsilon
+Update3 344000 pairs took 1.480324s 32 1/epsilon
+Update3 344000 pairs took 1.847532s 64 1/epsilon

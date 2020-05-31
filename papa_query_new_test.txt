@@ -1,0 +1,7 @@
+Query 344000 pairs took 0.804796s 4 1/epsilon
+Query 344000 pairs took 1.864628s 8 1/epsilon
+Query 344000 pairs took 5.419864s 16 1/epsilon
+Query 344000 pairs took 19.941982s 32 1/epsilon
+Query 344000 pairs took 76.519609s 64 1/epsilon
+Query 344000 pairs took 296.617199s 128 1/epsilon
+Query 344000 pairs took 1450.866285s 256 1/epsilon

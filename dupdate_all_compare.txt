@@ -1,0 +1,560 @@
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014220s 4 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014185s 8 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014216s 16 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014265s 32 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014241s 64 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.014317s 128 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch1 5000 pairs took 0.015325s 256 1/epsilon 512 range 1 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.119850s 4 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.120636s 8 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.125618s 16 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.131220s 32 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.135398s 64 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.139702s 128 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch2 5000 pairs took 0.140873s 256 1/epsilon 512 range 2 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+mdsketch3 5000 pairs took 1.223076s 4 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.330993s 8 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.417246s 16 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.466274s 32 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.497953s 64 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.563671s 128 1/epsilon 512 range 3 dimensions
+mdsketch3 5000 pairs took 1.692861s 256 1/epsilon 512 range 3 dimensions
+mdsketch4 5000 pairs took 12.205068s 4 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 13.402677s 8 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 16.220254s 16 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 23.403128s 32 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 28.851932s 64 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 31.792461s 128 1/epsilon 512 range 4 dimensions
+mdsketch4 5000 pairs took 33.650948s 256 1/epsilon 512 range 4 dimensions
+papa1 344000 pairs took 0.246241s 4 1/epsilon
+papa1 344000 pairs took 0.247837s 4 1/epsilon
+papa1 344000 pairs took 0.247038s 4 1/epsilon
+papa1 344000 pairs took 0.247168s 4 1/epsilon
+papa1 344000 pairs took 0.246333s 4 1/epsilon
+papa1 344000 pairs took 0.245788s 4 1/epsilon
+papa1 344000 pairs took 0.246633s 4 1/epsilon
+papa1 344000 pairs took 0.247482s 4 1/epsilon
+papa1 344000 pairs took 0.248283s 4 1/epsilon
+papa1 344000 pairs took 0.248031s 4 1/epsilon
+papa1 344000 pairs took 0.281732s 8 1/epsilon
+papa1 344000 pairs took 0.280953s 8 1/epsilon
+papa1 344000 pairs took 0.280409s 8 1/epsilon
+papa1 344000 pairs took 0.282433s 8 1/epsilon
+papa1 344000 pairs took 0.280673s 8 1/epsilon
+papa1 344000 pairs took 0.280619s 8 1/epsilon
+papa1 344000 pairs took 0.282364s 8 1/epsilon
+papa1 344000 pairs took 0.282140s 8 1/epsilon
+papa1 344000 pairs took 0.280787s 8 1/epsilon
+papa1 344000 pairs took 0.280696s 8 1/epsilon
+papa1 344000 pairs took 0.317642s 16 1/epsilon
+papa1 344000 pairs took 0.317232s 16 1/epsilon
+papa1 344000 pairs took 0.318657s 16 1/epsilon
+papa1 344000 pairs took 0.319804s 16 1/epsilon
+papa1 344000 pairs took 0.317098s 16 1/epsilon
+papa1 344000 pairs took 0.317440s 16 1/epsilon
+papa1 344000 pairs took 0.316835s 16 1/epsilon
+papa1 344000 pairs took 0.316911s 16 1/epsilon
+papa1 344000 pairs took 0.318120s 16 1/epsilon
+papa1 344000 pairs took 0.318182s 16 1/epsilon
+papa1 344000 pairs took 0.359420s 32 1/epsilon
+papa1 344000 pairs took 0.358847s 32 1/epsilon
+papa1 344000 pairs took 0.358084s 32 1/epsilon
+papa1 344000 pairs took 0.357865s 32 1/epsilon
+papa1 344000 pairs took 0.360023s 32 1/epsilon
+papa1 344000 pairs took 0.359630s 32 1/epsilon
+papa1 344000 pairs took 0.361831s 32 1/epsilon
+papa1 344000 pairs took 0.358125s 32 1/epsilon
+papa1 344000 pairs took 0.362001s 32 1/epsilon
+papa1 344000 pairs took 0.358170s 32 1/epsilon
+papa1 344000 pairs took 0.405999s 64 1/epsilon
+papa1 344000 pairs took 0.405830s 64 1/epsilon
+papa1 344000 pairs took 0.405921s 64 1/epsilon
+papa1 344000 pairs took 0.405584s 64 1/epsilon
+papa1 344000 pairs took 0.406999s 64 1/epsilon
+papa1 344000 pairs took 0.407134s 64 1/epsilon
+papa1 344000 pairs took 0.406152s 64 1/epsilon
+papa1 344000 pairs took 0.405578s 64 1/epsilon
+papa1 344000 pairs took 0.406243s 64 1/epsilon
+papa1 344000 pairs took 0.405574s 64 1/epsilon
+papa1 344000 pairs took 0.454882s 128 1/epsilon
+papa1 344000 pairs took 0.456764s 128 1/epsilon
+papa1 344000 pairs took 0.456330s 128 1/epsilon
+papa1 344000 pairs took 0.456558s 128 1/epsilon
+papa1 344000 pairs took 0.455200s 128 1/epsilon
+papa1 344000 pairs took 0.457782s 128 1/epsilon
+papa1 344000 pairs took 0.455407s 128 1/epsilon
+papa1 344000 pairs took 0.457309s 128 1/epsilon
+papa1 344000 pairs took 0.455616s 128 1/epsilon
+papa1 344000 pairs took 0.456203s 128 1/epsilon
+papa1 344000 pairs took 0.508428s 256 1/epsilon
+papa1 344000 pairs took 0.509096s 256 1/epsilon
+papa1 344000 pairs took 0.507918s 256 1/epsilon
+papa1 344000 pairs took 0.509832s 256 1/epsilon
+papa1 344000 pairs took 0.507088s 256 1/epsilon
+papa1 344000 pairs took 0.510483s 256 1/epsilon
+papa1 344000 pairs took 0.509657s 256 1/epsilon
+papa1 344000 pairs took 0.508755s 256 1/epsilon
+papa1 344000 pairs took 0.507412s 256 1/epsilon
+papa1 344000 pairs took 0.507666s 256 1/epsilon
+papa2 344000 pairs took 0.361172s 4 1/epsilon
+papa2 344000 pairs took 0.359592s 4 1/epsilon
+papa2 344000 pairs took 0.359713s 4 1/epsilon
+papa2 344000 pairs took 0.361811s 4 1/epsilon
+papa2 344000 pairs took 0.359985s 4 1/epsilon
+papa2 344000 pairs took 0.364144s 4 1/epsilon
+papa2 344000 pairs took 0.361071s 4 1/epsilon
+papa2 344000 pairs took 0.360938s 4 1/epsilon
+papa2 344000 pairs took 0.359532s 4 1/epsilon
+papa2 344000 pairs took 0.359608s 4 1/epsilon
+papa2 344000 pairs took 0.482125s 8 1/epsilon
+papa2 344000 pairs took 0.481886s 8 1/epsilon
+papa2 344000 pairs took 0.500615s 8 1/epsilon
+papa2 344000 pairs took 0.482399s 8 1/epsilon
+papa2 344000 pairs took 0.479676s 8 1/epsilon
+papa2 344000 pairs took 0.480553s 8 1/epsilon
+papa2 344000 pairs took 0.481286s 8 1/epsilon
+papa2 344000 pairs took 0.482062s 8 1/epsilon
+papa2 344000 pairs took 0.498313s 8 1/epsilon
+papa2 344000 pairs took 0.499319s 8 1/epsilon
+papa2 344000 pairs took 0.627596s 16 1/epsilon
+papa2 344000 pairs took 0.624869s 16 1/epsilon
+papa2 344000 pairs took 0.624688s 16 1/epsilon
+papa2 344000 pairs took 0.625777s 16 1/epsilon
+papa2 344000 pairs took 0.625454s 16 1/epsilon
+papa2 344000 pairs took 0.627062s 16 1/epsilon
+papa2 344000 pairs took 0.624274s 16 1/epsilon
+papa2 344000 pairs took 0.626245s 16 1/epsilon
+papa2 344000 pairs took 0.627443s 16 1/epsilon
+papa2 344000 pairs took 0.627748s 16 1/epsilon
+papa2 344000 pairs took 0.775923s 32 1/epsilon
+papa2 344000 pairs took 0.776336s 32 1/epsilon
+papa2 344000 pairs took 0.777602s 32 1/epsilon
+papa2 344000 pairs took 0.778520s 32 1/epsilon
+papa2 344000 pairs took 0.777401s 32 1/epsilon
+papa2 344000 pairs took 0.789141s 32 1/epsilon
+papa2 344000 pairs took 0.775837s 32 1/epsilon
+papa2 344000 pairs took 0.776375s 32 1/epsilon
+papa2 344000 pairs took 0.777922s 32 1/epsilon
+papa2 344000 pairs took 0.778082s 32 1/epsilon
+papa2 344000 pairs took 0.926973s 64 1/epsilon
+papa2 344000 pairs took 0.926418s 64 1/epsilon
+papa2 344000 pairs took 0.926802s 64 1/epsilon
+papa2 344000 pairs took 0.925886s 64 1/epsilon
+papa2 344000 pairs took 0.926994s 64 1/epsilon
+papa2 344000 pairs took 0.926461s 64 1/epsilon
+papa2 344000 pairs took 0.925672s 64 1/epsilon
+papa2 344000 pairs took 0.925931s 64 1/epsilon
+papa2 344000 pairs took 0.927414s 64 1/epsilon
+papa2 344000 pairs took 0.927864s 64 1/epsilon
+papa2 344000 pairs took 1.094939s 128 1/epsilon
+papa2 344000 pairs took 1.098098s 128 1/epsilon
+papa2 344000 pairs took 1.096309s 128 1/epsilon
+papa2 344000 pairs took 1.096159s 128 1/epsilon
+papa2 344000 pairs took 1.185679s 128 1/epsilon
+papa2 344000 pairs took 1.105869s 128 1/epsilon
+papa2 344000 pairs took 1.097470s 128 1/epsilon
+papa2 344000 pairs took 1.095857s 128 1/epsilon
+papa2 344000 pairs took 1.115178s 128 1/epsilon
+papa2 344000 pairs took 1.096177s 128 1/epsilon
+papa2 344000 pairs took 1.290003s 256 1/epsilon
+papa2 344000 pairs took 1.286915s 256 1/epsilon
+papa2 344000 pairs took 1.282706s 256 1/epsilon
+papa2 344000 pairs took 1.288574s 256 1/epsilon
+papa2 344000 pairs took 1.286823s 256 1/epsilon
+papa2 344000 pairs took 1.288281s 256 1/epsilon
+papa2 344000 pairs took 1.286937s 256 1/epsilon
+papa2 344000 pairs took 1.300702s 256 1/epsilon
+papa2 344000 pairs took 1.287571s 256 1/epsilon
+papa2 344000 pairs took 1.286651s 256 1/epsilon
+papa3 344000 pairs took 0.587235s 4 1/epsilon
+papa3 344000 pairs took 0.607435s 4 1/epsilon
+papa3 344000 pairs took 0.607615s 4 1/epsilon
+papa3 344000 pairs took 0.566548s 4 1/epsilon
+papa3 344000 pairs took 0.587235s 4 1/epsilon
+papa3 344000 pairs took 0.607435s 4 1/epsilon
+papa3 344000 pairs took 0.607615s 4 1/epsilon
+papa3 344000 pairs took 0.496548s 4 1/epsilon
+papa3 344000 pairs took 0.566548s 4 1/epsilon
+papa3 344000 pairs took 0.497235s 4 1/epsilon
+papa3 344000 pairs took 0.822372s 8 1/epsilon
+papa3 344000 pairs took 0.839199s 8 1/epsilon
+papa3 344000 pairs took 0.852272s 8 1/epsilon
+papa3 344000 pairs took 0.840275s 8 1/epsilon
+papa3 344000 pairs took 0.831072s 8 1/epsilon
+papa3 344000 pairs took 0.822372s 8 1/epsilon
+papa3 344000 pairs took 0.839199s 8 1/epsilon
+papa3 344000 pairs took 0.852272s 8 1/epsilon
+papa3 344000 pairs took 0.840275s 8 1/epsilon
+papa3 344000 pairs took 0.831072s 8 1/epsilon
+papa3 344000 pairs took 1.160711s 16 1/epsilon
+papa3 344000 pairs took 1.159731s 16 1/epsilon
+papa3 344000 pairs took 1.160702s 16 1/epsilon
+papa3 344000 pairs took 1.159701s 16 1/epsilon
+papa3 344000 pairs took 1.159720s 16 1/epsilon
+papa3 344000 pairs took 1.160711s 16 1/epsilon
+papa3 344000 pairs took 1.159731s 16 1/epsilon
+papa3 344000 pairs took 1.160702s 16 1/epsilon
+papa3 344000 pairs took 1.159701s 16 1/epsilon
+papa3 344000 pairs took 1.160720s 16 1/epsilon
+papa3 344000 pairs took 1.490325s 32 1/epsilon
+papa3 344000 pairs took 1.481321s 32 1/epsilon
+papa3 344000 pairs took 1.490322s 32 1/epsilon
+papa3 344000 pairs took 1.500334s 32 1/epsilon
+papa3 344000 pairs took 1.491325s 32 1/epsilon
+papa3 344000 pairs took 1.490325s 32 1/epsilon
+papa3 344000 pairs took 1.401321s 32 1/epsilon
+papa3 344000 pairs took 1.490322s 32 1/epsilon
+papa3 344000 pairs took 1.500334s 32 1/epsilon
+papa3 344000 pairs took 1.491325s 32 1/epsilon
+papa3 344000 pairs took 1.840531s 64 1/epsilon
+papa3 344000 pairs took 1.851532s 64 1/epsilon
+papa3 344000 pairs took 1.847604s 64 1/epsilon
+papa3 344000 pairs took 1.840531s 64 1/epsilon
+papa3 344000 pairs took 1.851532s 64 1/epsilon
+papa3 344000 pairs took 1.847604s 64 1/epsilon
+papa3 344000 pairs took 1.850531s 64 1/epsilon
+papa3 344000 pairs took 1.851532s 64 1/epsilon
+papa3 344000 pairs took 1.852594s 64 1/epsilon
+papa3 344000 pairs took 1.852604s 64 1/epsilon
+papa3 344000 pairs took 2.190259s 128 1/epsilon
+papa3 344000 pairs took 2.210339s 128 1/epsilon
+papa3 344000 pairs took 2.190439s 128 1/epsilon
+papa3 344000 pairs took 2.189349s 128 1/epsilon
+papa3 344000 pairs took 2.187349s 128 1/epsilon
+papa3 344000 pairs took 2.190259s 128 1/epsilon
+papa3 344000 pairs took 2.210339s 128 1/epsilon
+papa3 344000 pairs took 2.190439s 128 1/epsilon
+papa3 344000 pairs took 2.189349s 128 1/epsilon
+papa3 344000 pairs took 2.187349s 128 1/epsilon
+papa3 344000 pairs took 2.631551s 256 1/epsilon
+papa3 344000 pairs took 2.626950s 256 1/epsilon
+papa3 344000 pairs took 2.789091s 256 1/epsilon
+papa3 344000 pairs took 2.526959s 256 1/epsilon
+papa3 344000 pairs took 2.531551s 256 1/epsilon
+papa3 344000 pairs took 2.626958s 256 1/epsilon
+papa3 344000 pairs took 2.531551s 256 1/epsilon
+papa3 344000 pairs took 2.526950s 256 1/epsilon
+papa3 344000 pairs took 2.691551s 256 1/epsilon
+papa3 344000 pairs took 2.526950s 256 1/epsilon
+papa4 33554432 pairs took 104.307225s 4 1/epsilon
+papa4 33554432 pairs took 104.287225s 4 1/epsilon
+papa4 33554432 pairs took 104.277225s 4 1/epsilon
+papa4 33554432 pairs took 104.307225s 4 1/epsilon
+papa4 33554432 pairs took 104.295225s 4 1/epsilon
+papa4 33554432 pairs took 104.307225s 4 1/epsilon
+papa4 33554432 pairs took 104.297225s 4 1/epsilon
+papa4 33554432 pairs took 104.307225s 4 1/epsilon
+papa4 33554432 pairs took 104.296225s 4 1/epsilon
+papa4 33554432 pairs took 104.317225s 4 1/epsilon
+papa4 33554432 pairs took 154.509388s 8 1/epsilon
+papa4 33554432 pairs took 154.469388s 8 1/epsilon
+papa4 33554432 pairs took 154.519388s 8 1/epsilon
+papa4 33554432 pairs took 154.469388s 8 1/epsilon
+papa4 33554432 pairs took 154.519388s 8 1/epsilon
+papa4 33554432 pairs took 154.479388s 8 1/epsilon
+papa4 33554432 pairs took 154.469388s 8 1/epsilon
+papa4 33554432 pairs took 154.449388s 8 1/epsilon
+papa4 33554432 pairs took 154.469388s 8 1/epsilon
+papa4 33554432 pairs took 154.509388s 8 1/epsilon
+papa4 33554432 pairs took 222.166583s 16 1/epsilon
+papa4 33554432 pairs took 222.206583s 16 1/epsilon
+papa4 33554432 pairs took 222.186583s 16 1/epsilon
+papa4 33554432 pairs took 222.166583s 16 1/epsilon
+papa4 33554432 pairs took 222.146583s 16 1/epsilon
+papa4 33554432 pairs took 222.166583s 16 1/epsilon
+papa4 33554432 pairs took 222.206583s 16 1/epsilon
+papa4 33554432 pairs took 222.166583s 16 1/epsilon
+papa4 33554432 pairs took 222.146583s 16 1/epsilon
+papa4 33554432 pairs took 222.206583s 16 1/epsilon
+papa4 33554432 pairs took 292.053333s 32 1/epsilon
+papa4 33554432 pairs took 292.053333s 32 1/epsilon
+papa4 33554432 pairs took 292.133333s 32 1/epsilon
+papa4 33554432 pairs took 292.053333s 32 1/epsilon
+papa4 33554432 pairs took 292.103333s 32 1/epsilon
+papa4 33554432 pairs took 292.053333s 32 1/epsilon
+papa4 33554432 pairs took 292.103333s 32 1/epsilon
+papa4 33554432 pairs took 292.053333s 32 1/epsilon
+papa4 33554432 pairs took 292.047333s 32 1/epsilon
+papa4 33554432 pairs took 292.100033s 32 1/epsilon
+papa4 33554432 pairs took 400.285882s 64 1/epsilon
+papa4 33554432 pairs took 400.305882s 64 1/epsilon
+papa4 33554432 pairs took 400.305882s 64 1/epsilon
+papa4 33554432 pairs took 400.285882s 64 1/epsilon
+papa4 33554432 pairs took 400.305882s 64 1/epsilon
+papa4 33554432 pairs took 400.305882s 64 1/epsilon
+papa4 33554432 pairs took 400.305882s 64 1/epsilon
+papa4 33554432 pairs took 400.295882s 64 1/epsilon
+papa4 33554432 pairs took 400.305882s 64 1/epsilon
+papa4 33554432 pairs took 400.299882s 64 1/epsilon
+papa4 33554432 pairs took 661.512440s 128 1/epsilon
+papa4 33554432 pairs took 661.492440s 128 1/epsilon
+papa4 33554432 pairs took 661.502440s 128 1/epsilon
+papa4 33554432 pairs took 661.512440s 128 1/epsilon
+papa4 33554432 pairs took 661.512440s 128 1/epsilon
+papa4 33554432 pairs took 661.472440s 128 1/epsilon
+papa4 33554432 pairs took 661.512440s 128 1/epsilon
+papa4 33554432 pairs took 661.522440s 128 1/epsilon
+papa4 33554432 pairs took 661.512440s 128 1/epsilon
+papa4 33554432 pairs took 661.492440s 128 1/epsilon
+papa4 33554432 pairs took 1326.979524s 256 1/epsilon
+papa4 33554432 pairs took 1326.929524s 256 1/epsilon
+papa4 33554432 pairs took 1326.979524s 256 1/epsilon
+papa4 33554432 pairs took 1326.799524s 256 1/epsilon
+papa4 33554432 pairs took 1326.979524s 256 1/epsilon
+papa4 33554432 pairs took 1326.979524s 256 1/epsilon
+papa4 33554432 pairs took 1326.849524s 256 1/epsilon
+papa4 33554432 pairs took 1326.979524s 256 1/epsilon
+papa4 33554432 pairs took 1326.981524s 256 1/epsilon
+papa4 33554432 pairs took 1326.979524s 256 1/epsilon
